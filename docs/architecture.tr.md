@@ -1,197 +1,197 @@
 # Mimari - Approval Scheme Process
 
-Bu dokuman, Approval Scheme Process sisteminin yuksek seviye mimarisini, ana bilesenlerini, karar akislarini ve genisleme noktalarini tanimlar.
+Bu doküman, Approval Scheme Process sisteminin yüksek seviye mimarisini, ana bileşenlerini, karar akışlarını ve genişleme noktalarını tanımlar.
 
 [English version](architecture.md)
 
-## 1. Genel Bakis
+## 1. Genel Bakış
 
-Approval Scheme Process, devlet kurumlari icin tasarlanmis baglam tabanli bir erisim yonetisimi modelidir.
+Approval Scheme Process, devlet kurumları için tasarlanmış bağlam tabanlı bir erişim yönetişimi modelidir.
 
-Model dort temel fikir uzerine kuruludur:
+Model dört temel fikir üzerine kuruludur:
 
-- Serbest erisim yalnizca gecerli bir randevuya dayanan aktif oturum baglaminda verilir
-- Baglam disi erisimler guvenlik seviyelerine gore degerlendirilir
-- Onay akislari islem turu bazinda tanimlanir
-- Her karar izlenebilirlik ve denetim icin loglanir
+- Serbest erişim yalnızca geçerli bir randevuya dayanan aktif oturum bağlamında verilir
+- Bağlam dışı erişimler güvenlik seviyelerine göre değerlendirilir
+- Onay akışları işlem türü bazında tanımlanır
+- Her karar izlenebilirlik ve denetim için loglanır
 
-Model kurumdan bagimsizdir ve tapu, nufus, vergi ve sosyal hizmetler gibi alanlara uyarlanabilir.
+Model kurumdan bağımsızdır ve tapu, nüfus, vergi ve sosyal hizmetler gibi alanlara uyarlanabilir.
 
-## 2. Temel Ilkeler
+## 2. Temel İlkeler
 
-### 2.1 Baglam Tabanli Erisim
+### 2.1 Bağlam Tabanlı Erişim
 
-Calisanlar yalnizca su kosullarin tamami saglandiginda serbest sorgu yapabilir:
+Çalışanlar yalnızca şu koşulların tamamı sağlandığında serbest sorgu yapabilir:
 
-- Gecerli bir randevu vardir
-- Randevu aktif bir oturuma donusturulmustur
-- Calisan bu oturuma atanmistir
-- Sorgu hedefi oturum baglamiyla eslesmektedir
+- Geçerli bir randevu vardır
+- Randevu aktif bir oturuma dönüştürülmüştür
+- Çalışan bu oturuma atanmıştır
+- Sorgu hedefi oturum bağlamıyla eşleşmektedir
 
-### 2.2 Guvenlik Seviyesi Odakli Erisim
+### 2.2 Güvenlik Seviyesi Odaklı Erişim
 
-Tapu satisi, dogum kaydi veya vergi denetimi gibi her islem turune bir guvenlik seviyesi atanir.
+Tapu satışı, doğum kaydı veya vergi denetimi gibi her işlem türüne bir güvenlik seviyesi atanır.
 
-Guvenlik seviyeleri sunlari belirler:
+Güvenlik seviyeleri şunları belirler:
 
-- Onay gerekip gerekmedigi
-- Kac onay adimi gerektigi
-- Hangi rollerin onay verecegi
-- Ilave kontrollerin uygulanip uygulanmayacagi
+- Onay gerekip gerekmediği
+- Kaç onay adımı gerektiği
+- Hangi rollerin onay vereceği
+- İlave kontrollerin uygulanıp uygulanmayacağı
 
-### 2.3 Dinamik Onay Semalari
+### 2.3 Dinamik Onay Şemaları
 
-Her islem turu kendi onay akisina sahip olabilir.
+Her işlem türü kendi onay akışına sahip olabilir.
 
-Ornek kaliplar:
+Örnek kalıplar:
 
-- Seviye 1 -> Amir onayi
-- Seviye 2 -> Amir ve Guvenlik onayi
-- Seviye 3 -> Amir, Hukuk ve Veri Koruma onayi
-- Seviye 4 -> Coklu onay ve ozel yetkilendirme
+- Seviye 1 -> Amir onayı
+- Seviye 2 -> Amir ve Güvenlik onayı
+- Seviye 3 -> Amir, Hukuk ve Veri Koruma onayı
+- Seviye 4 -> Çoklu onay ve özel yetkilendirme
 
 ### 2.4 Tam Loglama ve Denetim
 
-Her sorguda su bilgiler kaydedilmelidir:
+Her sorguda şu bilgiler kaydedilmelidir:
 
-- Islemi yapan kisi
-- Islem zamani
-- Oturum veya istek baglami
-- Islem turu ve guvenlik seviyesi
-- Onay durumu ve onay gecmisi
-- Varsa cihaz ve ag metaverisi
+- İşlemi yapan kişi
+- İşlem zamanı
+- Oturum veya istek bağlamı
+- İşlem türü ve güvenlik seviyesi
+- Onay durumu ve onay geçmişi
+- Varsa cihaz ve ağ metaverisi
 
-## 3. Yuksek Seviye Mimari
+## 3. Yüksek Seviye Mimari
 
-Kullanici -> Randevu Sistemi -> Oturum Motoru -> Erisim Motoru -> Onay Motoru -> Loglama ve Denetim
+Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru -> Loglama ve Denetim
 
 ### 3.1 Randevu Sistemi
 
 Sorumluluklar:
 
-- Vatandas randevularini yonetmek
-- Talep edilen islem turunu belirlemek
-- Ilk is baglamini saglamak
-- Randevu zamaninda oturum olusumunu tetiklemek
+- Vatandaş randevularını yönetmek
+- Talep edilen işlem türünü belirlemek
+- İlk iş bağlamını sağlamak
+- Randevu zamanında oturum oluşumunu tetiklemek
 
 ### 3.2 Oturum Motoru
 
 Sorumluluklar:
 
-- Randevulari aktif oturumlara donusturmek
-- Oturumlari calisanlara atamak
-- Aktif, beklemede ve kapali gibi yasam dongusu durumlarini yonetmek
-- Erisim dogrulamasi icin baglam saglamak
+- Randevuları aktif oturumlara dönüştürmek
+- Oturumları çalışanlara atamak
+- Aktif, beklemede ve kapalı gibi yaşam döngüsü durumlarını yönetmek
+- Erişim doğrulaması için bağlam sağlamak
 
-### 3.3 Erisim Motoru
+### 3.3 Erişim Motoru
 
-Bu bilesen ana karar mekanizmasidir.
+Bu bileşen ana karar mekanizmasıdır.
 
 Sorumluluklar:
 
-- Bir sorgunun baglam ici mi baglam disi mi oldugunu kontrol etmek
-- Rol ve oturum kisitlarini degerlendirmek
-- Talep edilen islem icin guvenlik seviyesini belirlemek
-- Onay gerekip gerekmedigine karar vermek
-- Onay gerektiren talepleri Onay Motoruna yonlendirmek
-- Gerekli baglam veya yetki yoksa hizli sekilde reddetmek
+- Bir sorgunun bağlam içi mi bağlam dışı mı olduğunu kontrol etmek
+- Rol ve oturum kısıtlarını değerlendirmek
+- Talep edilen işlem için güvenlik seviyesini belirlemek
+- Onay gerekip gerekmediğine karar vermek
+- Onay gerektiren talepleri Onay Motoruna yönlendirmek
+- Gerekli bağlam veya yetki yoksa hızlı şekilde reddetmek
 
 ### 3.4 Onay Motoru
 
 Sorumluluklar:
 
-- Islem icin tanimli onay semasini getirmek
-- Onay adimlarini tanimli sira ile baslatmak
-- Onaylayicilari bilgilendirmek
-- Onay kararlarini kaydetmek
-- Sonucu Erisim Motoruna izin veya red olarak dondurmek
+- İşlem için tanımlı onay şemasını getirmek
+- Onay adımlarını tanımlı sıra ile başlatmak
+- Onaylayıcıları bilgilendirmek
+- Onay kararlarını kaydetmek
+- Sonucu Erişim Motoruna izin veya red olarak döndürmek
 
-### 3.5 Guvenlik Seviyesi Yoneticisi
-
-Sorumluluklar:
-
-- Guvenlik seviyelerini olusturmak ve guncellemek
-- Guvenlik seviyelerini islem turleriyle eslestirmek
-- Risk siniflandirma mantigini surdurmek
-
-### 3.6 Onay Semasi Yoneticisi
+### 3.5 Güvenlik Seviyesi Yöneticisi
 
 Sorumluluklar:
 
-- Onay adimlarini, rolleri ve siralamayi tanimlamak
-- Gerekirse kosullu dallanmalari desteklemek
-- Sema tutarliligini dogrulamak
-- Onay zincirini Onay Motoruna saglamak
+- Güvenlik seviyelerini oluşturmak ve güncellemek
+- Güvenlik seviyelerini işlem türleriyle eşleştirmek
+- Risk sınıflandırma mantığını sürdürmek
 
-### 3.7 Loglama ve Denetim Katmani
+### 3.6 Onay Şeması Yöneticisi
 
 Sorumluluklar:
 
-- Erisim ve onay loglarini saklamak
-- Denetim raporlarini desteklemek
-- Ileride eklenecek anomali tespitine zemin hazirlamak
+- Onay adımlarını, rolleri ve sıralamayı tanımlamak
+- Gerekirse koşullu dallanmaları desteklemek
+- Şema tutarlılığını doğrulamak
+- Onay zincirini Onay Motoruna sağlamak
+
+### 3.7 Loglama ve Denetim Katmanı
+
+Sorumluluklar:
+
+- Erişim ve onay loglarını saklamak
+- Denetim raporlarını desteklemek
+- İleride eklenecek anomali tespitine zemin hazırlamak
 - KVKK ve benzeri uyumluluk gereksinimlerine destek olmak
 
-## 4. Karar Sirasi
+## 4. Karar Sırası
 
-Kontrol modelinin ongorulebilir olmasi icin Erisim Motoru talepleri su sirayla degerlendirmelidir:
+Kontrol modelinin öngörülebilir olması için Erişim Motoru talepleri şu sırayla değerlendirmelidir:
 
-1. Oturum ve baglam dogrulamasi
-2. Calisan ve rol yetkilendirmesi
-3. Islem turu tespiti
-4. Guvenlik seviyesi belirleme
-5. Onay gereksinimi karari
-6. Izin ver, reddet veya onay akisina gonder
-7. Istek ve sonucun loglanmasi
+1. Oturum ve bağlam doğrulaması
+2. Çalışan ve rol yetkilendirmesi
+3. İşlem türü tespiti
+4. Güvenlik seviyesi belirleme
+5. Onay gereksinimi kararı
+6. İzin ver, reddet veya onay akışına gönder
+7. İstek ve sonucun loglanması
 
-Bu sira, onaya gecmeden once hangi kontrollerin zorunlu oldugunu acik hale getirir.
+Bu sıra, onaya geçmeden önce hangi kontrollerin zorunlu olduğunu açık hale getirir.
 
-## 5. Bilesen Etkilesimi
+## 5. Bileşen Etkileşimi
 
-### 5.1 Baglam Ici Sorgu Akisi
+### 5.1 Bağlam İçi Sorgu Akışı
 
-Calisan -> Oturum Motoru -> Erisim Motoru -> Loglama -> Izin
+Çalışan -> Oturum Motoru -> Erişim Motoru -> Loglama -> İzin
 
-Adimlar:
+Adımlar:
 
-1. Calisan aktif bir oturum icinde sorgu yapar
-2. Oturum Motoru guncel oturum baglamini saglar
-3. Erisim Motoru hedefin oturum ve rol kisitlariyla uyumlu oldugunu dogrular
-4. Istek baglam ici olarak siniflandirilir
+1. Çalışan aktif bir oturum içinde sorgu yapar
+2. Oturum Motoru güncel oturum bağlamını sağlar
+3. Erişim Motoru hedefin oturum ve rol kısıtlarıyla uyumlu olduğunu doğrular
+4. İstek bağlam içi olarak sınıflandırılır
 5. Ek onay olmadan sorguya izin verilir
-6. Istek ve sonuc loglanir
+6. İstek ve sonuç loglanır
 
-### 5.2 Baglam Disi Sorgu Akisi
+### 5.2 Bağlam Dışı Sorgu Akışı
 
-Calisan -> Erisim Motoru -> Onay Motoru -> Loglama -> Izin veya Red
+Çalışan -> Erişim Motoru -> Onay Motoru -> Loglama -> İzin veya Red
 
-Adimlar:
+Adımlar:
 
-1. Calisan gecerli oturum olmadan veya uyumsuz baglamla sorgu yapar
-2. Erisim Motoru istegi baglam disi olarak siniflandirir
-3. Islem turu ve guvenlik seviyesi belirlenir
-4. Onay semasi yuklenir
-5. Onay akisi calistirilir
+1. Çalışan geçerli oturum olmadan veya uyumsuz bağlamla sorgu yapar
+2. Erişim Motoru isteği bağlam dışı olarak sınıflandırır
+3. İşlem türü ve güvenlik seviyesi belirlenir
+4. Onay şeması yüklenir
+5. Onay akışı çalıştırılır
 6. Onay verilirse sorguya izin verilir
-7. Reddedilirse veya sure asimina ugrarsa sorgu reddedilir
-8. Istek, onay sonucu ve nihai sonuc loglanir
+7. Reddedilirse veya süre aşımına uğrarsa sorgu reddedilir
+8. İstek, onay sonucu ve nihai sonuç loglanır
 
-## 6. Istisnalar ve Kenar Durumlar
+## 6. İstisnalar ve Kenar Durumlar
 
-Mimari su durumlari acikca tanimlamalidir:
+Mimari şu durumları açıkça tanımlamalıdır:
 
-- Gerekceli acil durum erisimi
-- Onay zaman asimi veya onay suresinin dolmasi
-- Onaylayicinin yoklugu veya devir senaryolari
+- Gerekçeli acil durum erişimi
+- Onay zaman aşımı veya onay süresinin dolması
+- Onaylayıcının yokluğu veya devir senaryoları
 - Zorunlu sonradan inceleme ile manuel override
 - Tekrarlayan red talepleri
-- Mesai disi saatlerde yuksek riskli erisim
+- Mesai dışı saatlerde yüksek riskli erişim
 
-Bu durumlar kamu ortami icin ozellikle onemlidir.
+Bu durumlar kamu ortamı için özellikle önemlidir.
 
 ## 7. Veri Modeli Durumu
 
-Yuksek seviyede planlanan temel varliklar sunlardir:
+Yüksek seviyede planlanan temel varlıklar şunlardır:
 
 - User
 - Appointment
@@ -203,27 +203,27 @@ Yuksek seviyede planlanan temel varliklar sunlardir:
 - Query
 - Approval
 
-Detayli sema ileride `db/schema.sql` altinda eklenmesi planlanan bir artefakttir; su anda depoda bulunmamaktadir.
+Detaylı şema ileride `db/schema.sql` altında eklenmesi planlanan bir artefakttır; şu anda depoda bulunmamaktadır.
 
-## 8. Genisletilebilirlik
+## 8. Genişletilebilirlik
 
-Mimari su sekilde tasarlanmistir:
+Mimari şu şekilde tasarlanmıştır:
 
-### Moduler
+### Modüler
 
-Her bilesen birbirinden bagimsiz olarak degistirilebilir veya genisletilebilir.
+Her bileşen birbirinden bağımsız olarak değiştirilebilir veya genişletilebilir.
 
-### Kurumdan Bagimsiz
+### Kurumdan Bağımsız
 
-Her kurum su alanlari kendi ihtiyacina gore tanimlayabilir:
+Her kurum şu alanları kendi ihtiyacına göre tanımlayabilir:
 
-- Kendi islem turleri
-- Kendi guvenlik seviyeleri
-- Kendi onay semalari
+- Kendi işlem türleri
+- Kendi güvenlik seviyeleri
+- Kendi onay şemaları
 
-### Teknolojiden Bagimsiz
+### Teknolojiden Bağımsız
 
-Arka uc su teknolojilerle uygulanabilir:
+Arka uç şu teknolojilerle uygulanabilir:
 
 - Python
 - Node.js
@@ -231,21 +231,21 @@ Arka uc su teknolojilerle uygulanabilir:
 - Go
 - .NET
 
-### Gelecek Genislemeleri
+### Gelecek Genişlemeleri
 
 - Anomali tespiti
-- Gercek zamanli risk puanlamasi
-- Kurumlar arasi erisim federasyonu
+- Gerçek zamanlı risk puanlaması
+- Kurumlar arası erişim federasyonu
 - Zero-trust entegrasyonu
 
-## 9. Ozet
+## 9. Özet
 
-Approval Scheme Process sunlari saglar:
+Approval Scheme Process şunları sağlar:
 
-- Birlesik bir erisim yonetisimi modeli
-- Daha guclu kisisel veri korumasi
-- Yetkisiz erisimin onlenmesi
-- Kuruma ozel esnek onay akislari
+- Birleşik bir erişim yönetişimi modeli
+- Daha güçlü kişisel veri koruması
+- Yetkisiz erişimin önlenmesi
+- Kuruma özel esnek onay akışları
 - Tam izlenebilirlik ve denetlenebilirlik
 
-Bu dokuman, devlet sistemlerinde guvenli ve baglam tabanli erisim kontrolu uygulamak icin kavramsal temeli tanimlar.
+Bu doküman, devlet sistemlerinde güvenli ve bağlam tabanlı erişim kontrolü uygulamak için kavramsal temeli tanımlar.

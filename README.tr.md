@@ -1,77 +1,77 @@
 # Approval Scheme Process
 
-Devlet kurumlari icin baglam tabanli erisim yonetisimi ve cok kademeli onay cercevesi.
+Devlet kurumları için bağlam tabanlı erişim yönetişimi ve çok kademeli onay çerçevesi.
 
 [English README](README.md) | [Mimari](docs/architecture.tr.md) | [English Architecture](docs/architecture.md)
 
 ## Proje Durumu
 
-Bu depo su anda kavramsal tasarim ve dokumantasyon asamasindadir.
+Bu depo şu anda kavramsal tasarım ve dokümantasyon aşamasındadır.
 
-Mevcut kapsama sunlar dahildir:
+Mevcut kapsama şunlar dahildir:
 
-- Vizyon ve problem tanimi
-- Yuksek seviye sistem mimarisi
-- Taslak onay ve erisim kontrol modeli
-- Uygulama icin ilk yol haritasi
+- Vizyon ve problem tanımı
+- Yüksek seviye sistem mimarisi
+- Taslak onay ve erişim kontrol modeli
+- Uygulama için ilk yol haritası
 
-`db/schema.sql` gibi planlanan artefaktlar henuz depoya eklenmemistir.
+`db/schema.sql` gibi planlanan artefaktlar henüz depoya eklenmemiştir.
 
-## Genel Bakis
+## Genel Bakış
 
-Bu proje, kamu kurumlarindaki sistemler icin su yetenekleri sunan bir erisim yonetisimi modeli onerir:
+Bu proje, kamu kurumlarındaki sistemler için şu yetenekleri sunan bir erişim yönetişimi modeli önerir:
 
-- Memurlarin yalnizca randevuya bagli islem baglaminda serbest sorgu yapabilmesi
-- Baglam disi sorgularin, islem turune gore tanimlanan guvenlik seviyelerine gore onaya tabi olmasi
-- Farkli islem turleri icin dinamik onay semalarinin tanimlanabilmesi
-- Tum erisimlerin loglanmasi, izlenebilirligi ve denetlenebilirligi
+- Memurların yalnızca randevuya bağlı işlem bağlamında serbest sorgu yapabilmesi
+- Bağlam dışı sorguların, işlem türüne göre tanımlanan güvenlik seviyelerine göre onaya tabi olması
+- Farklı işlem türleri için dinamik onay şemalarının tanımlanabilmesi
+- Tüm erişimlerin loglanması, izlenebilirliği ve denetlenebilirliği
 
-Amac, kisisel verilere yetkisiz erisimi azaltmak, suistimali onlemek ve kurumlari sonradan denetimden proaktif kontrole tasimaktir.
+Amaç, kişisel verilere yetkisiz erişimi azaltmak, suistimali önlemek ve kurumları sonradan denetimden proaktif kontrole taşımaktır.
 
 ## Bu Proje Neden Var
 
-Bir cok kamu bilgi sistemi halen genis ic erisim tanir ve agirlikli olarak olay sonrasi denetime dayanir. Bu durum su riskleri dogurur:
+Bir çok kamu bilgi sistemi halen geniş iç erişim tanır ve ağırlıklı olarak olay sonrası denetime dayanır. Bu durum şu riskleri doğurur:
 
-- Kisisel verilere yetkisiz erisim
-- Merak veya siyasi motivasyonla yapilan sorgular
-- Tutarsiz onay akislar
-- Kurumlar arasinda degisen guvenlik uygulamalari
+- Kişisel verilere yetkisiz erişim
+- Merak veya siyasi motivasyonla yapılan sorgular
+- Tutarsız onay akışları
+- Kurumlar arasında değişen güvenlik uygulamaları
 
-Approval Scheme Process, kurumlara uyarlanabilir baglam tabanli ve guvenlik seviyesi odakli bir erisim modeli sunar.
+Approval Scheme Process, kurumlara uyarlanabilir bağlam tabanlı ve güvenlik seviyesi odaklı bir erişim modeli sunar.
 
-## Depo Yapisi
+## Depo Yapısı
 
-- `README.md`: Ingilizce proje ozeti
-- `README.tr.md`: Turkce proje ozeti
-- `docs/architecture.md`: Ingilizce mimari dokumani
-- `docs/architecture.tr.md`: Turkce mimari dokumani
+- `README.md`: İngilizce proje özeti
+- `README.tr.md`: Türkçe proje özeti
+- `docs/architecture.md`: İngilizce mimari dokümanı
+- `docs/architecture.tr.md`: Türkçe mimari dokümanı
 
 ## Temel Yetenekler
 
-- Baglam tabanli erisim kontrolu
-- Islem turu bazli guvenlik seviyeleri
-- Dinamik onay semasi tanimlama
-- Cok kademeli onay akislari
-- Tam loglama ve denetim destegi
-- Kurumdan bagimsiz mimari
+- Bağlam tabanlı erişim kontrolü
+- İşlem türü bazlı güvenlik seviyeleri
+- Dinamik onay şeması tanımlama
+- Çok kademeli onay akışları
+- Tam loglama ve denetim desteği
+- Kurumdan bağımsız mimari
 
-## Yuksek Seviye Mimari
+## Yüksek Seviye Mimari
 
-Kullanici -> Randevu Sistemi -> Oturum Motoru -> Erisim Motoru -> Onay Motoru -> Loglama ve Denetim
+Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru -> Loglama ve Denetim
 
-## Dokumantasyon
+## Dokümantasyon
 
-- Ingilizce mimari: [docs/architecture.md](docs/architecture.md)
-- Turkce mimari: [docs/architecture.tr.md](docs/architecture.tr.md)
+- İngilizce mimari: [docs/architecture.md](docs/architecture.md)
+- Türkçe mimari: [docs/architecture.tr.md](docs/architecture.tr.md)
 
-## Yol Haritasi
+## Yol Haritası
 
-- Faz 1: Temel dokumantasyon ve veri modeli taslagi
-- Faz 2: Erisim Motoru prototipi
-- Faz 3: Onay Motoru uygulamasi
-- Faz 4: Loglama ve denetim katmani
-- Faz 5: Kamu alanlari icin ornek entegrasyonlar
+- Faz 1: Temel dokümantasyon ve veri modeli taslağı
+- Faz 2: Erişim Motoru prototipi
+- Faz 3: Onay Motoru uygulaması
+- Faz 4: Loglama ve denetim katmanı
+- Faz 5: Kamu alanları için örnek entegrasyonlar
 
 ## Lisans
 
-MIT Lisansi. Kullanmak, degistirmek ve dagitmak serbesttir.
+MIT Lisansı. Kullanmak, değiştirmek ve dağıtmak serbesttir.
