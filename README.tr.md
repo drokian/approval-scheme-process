@@ -1,4 +1,4 @@
-# Approval Scheme Process
+﻿# Approval Scheme Process
 
 Devlet kurumları için bağlam tabanlı erişim yönetişimi ve çok kademeli onay çerçevesi.
 
@@ -15,7 +15,7 @@ Mevcut kapsama şunlar dahildir:
 - Taslak onay ve erişim kontrol modeli
 - Uygulama için ilk yol haritası
 
-`db/schema.sql` gibi planlanan artefaktlar henüz depoya eklenmemiştir.
+Depo artık `db/schema.sql` içinde şema taslağını ve `db/seed.sql` içinde örnek seed verisini içermektedir.
 
 ## Genel Bakış
 
@@ -43,8 +43,8 @@ Approval Scheme Process, kurumlara uyarlanabilir bağlam tabanlı ve güvenlik s
 
 - `README.md`: İngilizce proje özeti
 - `README.tr.md`: Türkçe proje özeti
-- `docs/architecture.md`: İngilizce mimari dokümanı
-- `docs/architecture.tr.md`: Türkçe mimari dokümanı
+- `docs/`: Çift dilli mimari, akış, yönetişim, uyumluluk ve veri modeli dokümanları
+- `db/`: İlişkisel şema taslağı ve örnek seed verisi
 
 ## Temel Yetenekler
 
@@ -63,6 +63,22 @@ Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru
 
 - İngilizce mimari: [docs/architecture.md](docs/architecture.md)
 - Türkçe mimari: [docs/architecture.tr.md](docs/architecture.tr.md)
+- İngilizce akışlar: [docs/flows.md](docs/flows.md)
+- Türkçe akışlar: [docs/flows.tr.md](docs/flows.tr.md)
+- İngilizce güvenlik seviyeleri: [docs/security-levels.md](docs/security-levels.md)
+- Türkçe güvenlik seviyeleri: [docs/security-levels.tr.md](docs/security-levels.tr.md)
+- İngilizce sözlük: [docs/glossary.md](docs/glossary.md)
+- Türkçe sözlük: [docs/glossary.tr.md](docs/glossary.tr.md)
+- İngilizce yönetişim: [docs/governance.md](docs/governance.md)
+- Türkçe yönetişim: [docs/governance.tr.md](docs/governance.tr.md)
+- İngilizce roller ve sorumluluklar: [docs/roles-and-responsibilities.md](docs/roles-and-responsibilities.md)
+- Türkçe roller ve sorumluluklar: [docs/roles-and-responsibilities.tr.md](docs/roles-and-responsibilities.tr.md)
+- İngilizce uyumluluk: [docs/compliance.md](docs/compliance.md)
+- Türkçe uyumluluk: [docs/compliance.tr.md](docs/compliance.tr.md)
+- İngilizce veri modeli: [docs/data-model.md](docs/data-model.md)
+- Türkçe veri modeli: [docs/data-model.tr.md](docs/data-model.tr.md)
+- Şema taslağı: [db/schema.sql](db/schema.sql)
+- Örnek seed verisi: [db/seed.sql](db/seed.sql)
 
 ## Yol Haritası
 

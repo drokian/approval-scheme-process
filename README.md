@@ -1,4 +1,4 @@
-# Approval Scheme Process
+﻿# Approval Scheme Process
 
 A context-aware access governance and multi-level approval framework for government institutions.
 
@@ -15,7 +15,7 @@ The current scope includes:
 - Draft approval and access-control model
 - Initial roadmap for implementation
 
-Planned artifacts such as `db/schema.sql` are not yet included in the repository.
+The repository now includes a draft schema in `db/schema.sql` and example seed data in `db/seed.sql`.
 
 ## Overview
 
@@ -43,8 +43,8 @@ Approval Scheme Process introduces a context-based and security-level-driven acc
 
 - `README.md`: English project overview
 - `README.tr.md`: Turkish project overview
-- `docs/architecture.md`: English architecture document
-- `docs/architecture.tr.md`: Turkish architecture document
+- `docs/`: Bilingual architecture, flow, governance, compliance, and data-model documents
+- `db/`: Draft relational schema and example seed data
 
 ## Core Capabilities
 
@@ -63,6 +63,22 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 
 - English architecture: [docs/architecture.md](docs/architecture.md)
 - Turkish architecture: [docs/architecture.tr.md](docs/architecture.tr.md)
+- English flows: [docs/flows.md](docs/flows.md)
+- Turkish flows: [docs/flows.tr.md](docs/flows.tr.md)
+- English security levels: [docs/security-levels.md](docs/security-levels.md)
+- Turkish security levels: [docs/security-levels.tr.md](docs/security-levels.tr.md)
+- English glossary: [docs/glossary.md](docs/glossary.md)
+- Turkish glossary: [docs/glossary.tr.md](docs/glossary.tr.md)
+- English governance: [docs/governance.md](docs/governance.md)
+- Turkish governance: [docs/governance.tr.md](docs/governance.tr.md)
+- English roles and responsibilities: [docs/roles-and-responsibilities.md](docs/roles-and-responsibilities.md)
+- Turkish roles and responsibilities: [docs/roles-and-responsibilities.tr.md](docs/roles-and-responsibilities.tr.md)
+- English compliance: [docs/compliance.md](docs/compliance.md)
+- Turkish compliance: [docs/compliance.tr.md](docs/compliance.tr.md)
+- English data model: [docs/data-model.md](docs/data-model.md)
+- Turkish data model: [docs/data-model.tr.md](docs/data-model.tr.md)
+- Draft schema: [db/schema.sql](db/schema.sql)
+- Example seed data: [db/seed.sql](db/seed.sql)
 
 ## Roadmap
 
@@ -75,3 +91,4 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 ## License
 
 MIT License. Free to use, modify, and distribute.
+
