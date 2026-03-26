@@ -207,7 +207,7 @@ Yüksek seviyede planlanan temel varlıklar şunlardır:
 - Query
 - Approval
 
-Depo artık [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql) içinde ilişkisel bir şema taslağı içermektedir. Bu dosya, kavramsal modelle hizalı ama halen geliştirilen bir uygulama taslağı olarak değerlendirilmelidir.
+Depo artık [db/schema.sql](../db/schema.sql) içinde ilişkisel bir şema taslağı içermektedir. Bu dosya, kavramsal modelle hizalı ama halen geliştirilen bir uygulama taslağı olarak değerlendirilmelidir.
 
 ## 8. Genişletilebilirlik
 

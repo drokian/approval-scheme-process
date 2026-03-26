@@ -143,7 +143,7 @@ Before implementation, institutions should align this policy with:
 
 - Session lifecycle handling in [flows.md](flows.md)
 - Approval timeout behavior in [edge-cases.md](edge-cases.md)
-- Draft schema design in [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql)
+- Draft schema design in [db/schema.sql](../db/schema.sql)
 
 The current schema draft can now represent session expiry, last activity, invalidation reason, and assignment history. Further implementation may still need:
 

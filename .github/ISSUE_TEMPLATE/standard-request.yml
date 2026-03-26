@@ -19,7 +19,7 @@ body:
     id: contact
     attributes:
       label: Contact Information
-      description: How can we reach you if needed?
+      description: Optional. Use this only for external stakeholders or if a follow-up channel outside GitHub is needed.
       placeholder: e.g. email@example.com
     validations:
       required: false

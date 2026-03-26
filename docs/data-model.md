@@ -143,6 +143,6 @@ Institutions may later add entities for:
 
 ## 7. Schema Mapping
 
-The draft relational implementation of this conceptual model is provided in [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql).
+The draft relational implementation of this conceptual model is provided in [db/schema.sql](../db/schema.sql).
 
-An example baseline dataset for demonstrations and early testing is provided in [db/seed.sql](/d:/source/drokian/approval-scheme-process/db/seed.sql).
+An example baseline dataset for demonstrations and early testing is provided in [db/seed.sql](../db/seed.sql).

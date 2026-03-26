@@ -143,6 +143,6 @@ Kurumlar daha sonra aşağıdaki alanlar için ek varlıklar ekleyebilir:
 
 ## 7. Şema Eşlemesi
 
-Bu kavramsal modelin ilişkisel taslak uygulaması [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql) içinde yer alır.
+Bu kavramsal modelin ilişkisel taslak uygulaması [db/schema.sql](../db/schema.sql) içinde yer alır.
 
-Gösterim ve erken aşama testleri için örnek başlangıç verisi [db/seed.sql](/d:/source/drokian/approval-scheme-process/db/seed.sql) içinde sağlanır.
+Gösterim ve erken aşama testleri için örnek başlangıç verisi [db/seed.sql](../db/seed.sql) içinde sağlanır.

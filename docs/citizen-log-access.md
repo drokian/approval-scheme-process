@@ -117,7 +117,7 @@ The system should log:
 
 Before implementation, institutions should align this flow with:
 
-- Audit-log entity design in [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql)
+- Audit-log entity design in [db/schema.sql](../db/schema.sql)
 - Retention policy in [compliance.md](compliance.md)
 - Oversight and complaint ownership in [governance.md](governance.md)
 - Core operational request flows in [flows.md](flows.md)

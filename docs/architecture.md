@@ -207,7 +207,7 @@ The high-level entity set currently includes:
 - Query
 - Approval
 
-The repository now includes a draft relational schema in [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql). It should be treated as an evolving implementation draft aligned with the conceptual model.
+The repository now includes a draft relational schema in [db/schema.sql](../db/schema.sql). It should be treated as an evolving implementation draft aligned with the conceptual model.
 
 ## 8. Extensibility
 

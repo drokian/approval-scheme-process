@@ -80,7 +80,7 @@ body:
     id: severity
     attributes:
       label: Severity
-      description: How serious is this issue?
+      description: How serious is this issue? Current severity meanings are documented in CONTRIBUTING.md and are used for triage guidance for now.
       options:
         - Low
         - Medium

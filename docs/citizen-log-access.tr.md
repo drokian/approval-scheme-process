@@ -117,7 +117,7 @@ Sistem en az şunları loglamalıdır:
 
 Uygulamaya geçmeden önce bu akış şu alanlarla hizalanmalıdır:
 
-- [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql) içindeki denetim logu tasarımı
+- [db/schema.sql](../db/schema.sql) içindeki denetim logu tasarımı
 - [compliance.tr.md](compliance.tr.md) içindeki saklama politikası
 - [governance.tr.md](governance.tr.md) içindeki gözetim ve şikâyet sahipliği
 - [flows.tr.md](flows.tr.md) içindeki temel operasyonel istek akışları

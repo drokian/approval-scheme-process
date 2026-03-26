@@ -143,7 +143,7 @@ Uygulamaya geçmeden önce bu politika şu alanlarla hizalanmalıdır:
 
 - [flows.tr.md](flows.tr.md) içindeki oturum yaşam döngüsü
 - [edge-cases.tr.md](edge-cases.tr.md) içindeki onay zaman aşımı davranışı
-- [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql) içindeki şema taslağı
+- [db/schema.sql](../db/schema.sql) içindeki şema taslağı
 
 Mevcut şema taslağı artık oturum süre sonu, son aktivite, geçersizleştirme nedeni ve atama geçmişini temsil edebilmektedir. Yine de ileride şu alanlara ihtiyaç duyulabilir:
 
