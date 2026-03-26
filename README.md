@@ -82,6 +82,8 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 
 ## Visual Diagrams
 
+- Diagram index: [docs/diagrams/README.md](docs/diagrams/README.md)
+- Turkish diagram index: [docs/diagrams/README.tr.md](docs/diagrams/README.tr.md)
 - English access-control flow: [docs/diagrams/access-control-flow.svg](docs/diagrams/access-control-flow.svg)
 - Turkish access-control flow: [docs/diagrams/access-control-flow.tr.svg](docs/diagrams/access-control-flow.tr.svg)
 - English approval workflow: [docs/diagrams/approval-workflow.svg](docs/diagrams/approval-workflow.svg)

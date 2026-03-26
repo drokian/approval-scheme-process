@@ -82,6 +82,8 @@ Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru
 
 ## Görsel Diyagramlar
 
+- Diyagram indeksi: [docs/diagrams/README.tr.md](docs/diagrams/README.tr.md)
+- English diagram index: [docs/diagrams/README.md](docs/diagrams/README.md)
 - İngilizce erişim kontrol akışı: [docs/diagrams/access-control-flow.svg](docs/diagrams/access-control-flow.svg)
 - Türkçe erişim kontrol akışı: [docs/diagrams/access-control-flow.tr.svg](docs/diagrams/access-control-flow.tr.svg)
 - İngilizce onay iş akışı: [docs/diagrams/approval-workflow.svg](docs/diagrams/approval-workflow.svg)
