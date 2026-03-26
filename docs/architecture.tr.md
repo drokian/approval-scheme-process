@@ -2,7 +2,7 @@
 
 Bu doküman, Approval Scheme Process sisteminin yüksek seviye mimarisini, ana bileşenlerini, karar akışlarını ve genişleme noktalarını tanımlar.
 
-[English version](architecture.md)
+[English version](architecture.md) | [Akışlar](flows.tr.md) | [Kenar Durumlar](edge-cases.tr.md) | [Oturum ve Token Süre Sonu](session-and-token-expiry.tr.md)
 
 ## 1. Genel Bakış
 
@@ -82,6 +82,8 @@ Sorumluluklar:
 - Oturumları çalışanlara atamak
 - Aktif, beklemede ve kapalı gibi yaşam döngüsü durumlarını yönetmek
 - Erişim doğrulaması için bağlam sağlamak
+
+Oturum ömrü ve süre sonu beklentileri [session-and-token-expiry.tr.md](session-and-token-expiry.tr.md) içinde tanımlanmıştır.
 
 ### 3.3 Erişim Motoru
 
@@ -189,6 +191,8 @@ Mimari şu durumları açıkça tanımlamalıdır:
 
 Bu durumlar kamu ortamı için özellikle önemlidir.
 
+Bu senaryoların detaylı operasyonel tanımı [edge-cases.tr.md](edge-cases.tr.md) içinde yer alır.
+
 ## 7. Veri Modeli Durumu
 
 Yüksek seviyede planlanan temel varlıklar şunlardır:
@@ -203,7 +207,7 @@ Yüksek seviyede planlanan temel varlıklar şunlardır:
 - Query
 - Approval
 
-Detaylı şema ileride `db/schema.sql` altında eklenmesi planlanan bir artefakttır; şu anda depoda bulunmamaktadır.
+Depo artık [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql) içinde ilişkisel bir şema taslağı içermektedir. Bu dosya, kavramsal modelle hizalı ama halen geliştirilen bir uygulama taslağı olarak değerlendirilmelidir.
 
 ## 8. Genişletilebilirlik
 

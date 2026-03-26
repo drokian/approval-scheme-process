@@ -1,0 +1,117 @@
+name: Documentation Gap / Inconsistency
+description: Report a missing document, mismatch, unclear section, or bilingual inconsistency.
+title: "[Docs]: "
+labels:
+  - documentation
+  - needs-triage
+assignees:
+  - drokian
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when documentation is missing, unclear, outdated, inconsistent, or not aligned across English and Turkish files.
+
+  - type: dropdown
+    id: doc_issue_type
+    attributes:
+      label: Documentation Issue Type
+      description: What kind of documentation problem are you reporting?
+      options:
+        - Missing document or missing section
+        - Inconsistency between documents
+        - English / Turkish mismatch
+        - Schema and documentation mismatch
+        - Broken link or navigation issue
+        - Diagram and document mismatch
+        - Terminology or clarity problem
+    validations:
+      required: true
+
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected Area
+      description: Which area is affected?
+      placeholder: e.g. edge cases, citizen log access, session expiry, schema
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: Current Problem
+      description: Describe what is missing, inconsistent, or unclear today.
+      placeholder: Explain the current documentation problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_state
+    attributes:
+      label: Expected State
+      description: Describe how the documentation should look after correction.
+      placeholder: Explain what should be added, fixed, or aligned.
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_files
+    attributes:
+      label: Affected Files
+      description: List the related documents, diagrams, or schema files.
+      placeholder: e.g. docs/flows.md, docs/flows.tr.md, db/schema.sql
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: doc_impact
+    attributes:
+      label: Related Impact Areas
+      options:
+        - label: Architecture
+        - label: Flows
+        - label: Edge cases
+        - label: Security levels
+        - label: Governance / compliance
+        - label: Citizen log access
+        - label: Session / token expiry
+        - label: Data model / schema
+        - label: Seed data
+        - label: Diagrams
+        - label: README / index navigation
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: bilingual_scope
+    attributes:
+      label: Bilingual Scope
+      description: Select all that apply.
+      options:
+        - label: English documentation is affected
+        - label: Turkish documentation is affected
+        - label: Both language versions should be aligned
+          required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References / Links
+      description: Add links to files, issues, PRs, screenshots, or related notes.
+      placeholder: e.g. docs/architecture.md, docs/flows.tr.md, #42
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Check List
+      options:
+        - label: I checked related English and Turkish documents.
+          required: true
+        - label: I searched for an existing issue before creating this one.
+          required: true
+        - label: I did not include sensitive data.
+          required: true

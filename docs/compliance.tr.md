@@ -2,7 +2,7 @@
 
 Bu doküman, Approval Scheme Process sisteminin devlet kurumlarında işletilmesi için gereken asgari uyumluluk beklentilerini tanımlar. Odak noktası yargı alanına özel hukuk tavsiyesi vermek değil, kişisel veri koruması, hesap verebilirlik ve kanıt gereksinimlerini netleştirmektir.
 
-[English version](compliance.md)
+[English version](compliance.md) | [Vatandaş Log Erişimi](citizen-log-access.tr.md)
 
 ## 1. Amaç
 
@@ -127,6 +127,8 @@ Kurumsal model şu kabiliyetleri desteklemelidir:
 - Suistimal şikayetlerinin incelenmesi
 
 Yerel mevzuat veri sahibi taleplerinin yönetimini gerektiriyorsa, bu süreçler ayrı belgelenmeli ancak bu kontrol modeliyle izlenebilir biçimde ilişkilendirilmelidir.
+
+Vatandaşa dönük şeffaflık akışı [citizen-log-access.tr.md](citizen-log-access.tr.md) içinde tanımlanmıştır.
 
 ## 7. Olay ve Suistimal Yönetimi
 

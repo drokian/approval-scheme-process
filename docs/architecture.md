@@ -2,7 +2,7 @@
 
 This document describes the high-level architecture of the Approval Scheme Process, including the main components, decision flow, and extension points.
 
-[Turkce surum](architecture.tr.md)
+[Turkce surum](architecture.tr.md) | [Flows](flows.md) | [Edge Cases](edge-cases.md) | [Session and Token Expiry](session-and-token-expiry.md)
 
 ## 1. Overview
 
@@ -82,6 +82,8 @@ Responsibilities:
 - Assign sessions to employees
 - Maintain session lifecycle such as active, paused, and closed
 - Expose context for access validation
+
+Session lifetime and expiration expectations are documented in [session-and-token-expiry.md](session-and-token-expiry.md).
 
 ### 3.3 Access Engine
 
@@ -189,6 +191,8 @@ The architecture should explicitly define how to handle:
 
 These cases are especially important in public-sector environments.
 
+Detailed operational handling is documented in [edge-cases.md](edge-cases.md).
+
 ## 7. Data Model Status
 
 The high-level entity set currently includes:
@@ -203,7 +207,7 @@ The high-level entity set currently includes:
 - Query
 - Approval
 
-A detailed schema is planned for a future `db/schema.sql`, but it is not yet included in this repository.
+The repository now includes a draft relational schema in [db/schema.sql](/d:/source/drokian/approval-scheme-process/db/schema.sql). It should be treated as an evolving implementation draft aligned with the conceptual model.
 
 ## 8. Extensibility
 

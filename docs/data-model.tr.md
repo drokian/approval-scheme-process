@@ -2,7 +2,7 @@
 
 Bu doküman, Approval Scheme Process sisteminin kavramsal veri modelini tanımlar. Amaç, mimari dokümanlar ile `db/schema.sql` altındaki ilişkisel şema taslağı arasındaki boşluğu kapatmaktır.
 
-[English version](data-model.md)
+[English version](data-model.md) | [Vatandaş Log Erişimi](citizen-log-access.tr.md) | [Oturum ve Token Süre Sonu](session-and-token-expiry.tr.md)
 
 ## 1. Amaç
 
@@ -61,7 +61,11 @@ Randevuyla ilişkili hedef veriyi; örneğin vatandaş, varlık, kayıt veya dos
 
 ### Session
 
-Randevudan türetilen ve çalışana atanan aktif iş bağlamını temsil eder.
+Randevudan türetilen aktif iş bağlamını temsil eder. Oturum, mevcut atanan çalışan bilgisini ve yaşam döngüsü ile süre sonu metaverisini taşıyabilir.
+
+### SessionAssignment
+
+Bir oturumun zaman içinde çalışanlara atanma geçmişini temsil eder. Asıl atama, yeniden atama, geçici görevlendirme veya delegasyon benzeri devirleri kayda alır.
 
 ### Query
 
@@ -89,7 +93,8 @@ Temel ilişkiler şunlardır:
 - Bir ApprovalScheme bir veya daha fazla ApprovalSchemeStep içerir
 - Bir Appointment bir veya daha fazla AppointmentTarget içerebilir
 - Bir Appointment bir Session üretebilir
-- Bir Session bir User'a atanır
+- Bir Session zaman içinde bir veya daha fazla SessionAssignment kaydına sahip olabilir
+- Bir Session belirli bir anda tek bir mevcut atanan User'a sahip olabilir
 - Bir Query bir User tarafından talep edilir
 - Bir Query bir Session'a referans verebilir
 - Bir Query bir ApprovalRequest oluşturabilir
@@ -100,6 +105,8 @@ Temel ilişkiler şunlardır:
 ### Randevudan Oturuma
 
 Randevu planlı iş olarak başlar ve etkileşim başladığında aktif oturuma dönüşür.
+
+Atama ve yeniden atama olayları, tek bir alanın üzerine yazılmak yerine oturum geçmişi olarak korunmalıdır.
 
 ### Sorgudan Onaya
 
@@ -118,18 +125,20 @@ Veri modeli aşağıdaki kuralları desteklemelidir:
 - Hedef, oturum bağlamıyla eşleşmiyorsa sorgu bağlam içi işaretlenemez
 - Talep sahibi aynı onay adımının onaylayıcısı olamaz
 - Onay adımı sırası aynı şema içinde benzersiz olmalıdır
-- Bir oturum aynı anda birden fazla aktif çalışana atanamaz
+- Bir oturum aynı anda birden fazla mevcut aktif atamaya sahip olmamalıdır
+- Bağlam içi sorgular mevcut aktif oturum atamasıyla eşleşmelidir
 - Güvenlik seviyesi tanımlanmadan işlem türüne atanamaz
 
 ## 6. Genişletilebilirlik Notları
 
 Kurumlar daha sonra aşağıdaki alanlar için ek varlıklar ekleyebilir:
 
-- Vekalet
 - Acil durum erişimi
 - Override incelemesi
 - Olay yönetimi
 - Risk puanlama
+- Vatandaş log sorgusu
+- Açıklama paketi
 - Harici sistem bağlayıcıları
 
 ## 7. Şema Eşlemesi

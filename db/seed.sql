@@ -1,4 +1,4 @@
-﻿-- Example seed data for the Approval Scheme Process.
+-- Example seed data for the Approval Scheme Process.
 -- This dataset is intended for demonstrations and early development only.
 -- Run after db/schema.sql.
 
@@ -199,13 +199,44 @@ FROM appointments a;
 
 INSERT INTO sessions (
     appointment_id,
-    assigned_user_id,
+    current_assigned_user_id,
     status,
-    activated_at
+    activated_at,
+    expires_at,
+    last_activity_at
 )
-SELECT a.id, u.id, 'active', CURRENT_TIMESTAMP
+SELECT
+    a.id,
+    u.id,
+    'active',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP + INTERVAL '30 minutes',
+    CURRENT_TIMESTAMP
 FROM appointments a
 JOIN users u ON u.username = 'ayse.yilmaz'
+WHERE a.citizen_identifier = 'CIT-1001';
+
+INSERT INTO session_assignments (
+    session_id,
+    user_id,
+    assignment_type,
+    assignment_reason,
+    assigned_by_user_id,
+    assigned_at,
+    is_current
+)
+SELECT
+    s.id,
+    assigned_user.id,
+    'primary',
+    'Primary appointment owner assigned at session activation.',
+    assigned_by.id,
+    s.activated_at,
+    TRUE
+FROM sessions s
+JOIN users assigned_user ON assigned_user.username = 'ayse.yilmaz'
+JOIN users assigned_by ON assigned_by.username = 'kemal.sahin'
+JOIN appointments a ON a.id = s.appointment_id
 WHERE a.citizen_identifier = 'CIT-1001';
 
 INSERT INTO queries (

@@ -2,7 +2,7 @@
 
 This document defines the baseline compliance expectations for operating the Approval Scheme Process in government institutions. It focuses on personal-data protection, accountability, and evidence requirements rather than jurisdiction-specific legal advice.
 
-[Turkce surum](compliance.tr.md)
+[Turkce surum](compliance.tr.md) | [Citizen Log Access](citizen-log-access.md)
 
 ## 1. Purpose
 
@@ -127,6 +127,8 @@ The institutional model should support:
 - Investigation of misuse complaints
 
 If local regulation requires data subject request handling, related procedures should be documented separately but remain traceable to this control model.
+
+The citizen-facing transparency flow is documented in [citizen-log-access.md](citizen-log-access.md).
 
 ## 7. Incident and Misuse Handling
 

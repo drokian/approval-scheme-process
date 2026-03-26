@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Project Overview
+    url: https://github.com/drokian/approval-scheme-process/blob/main/README.md
+    about: Review the repository overview and documentation index before opening an issue.
+  - name: Diagram Index
+    url: https://github.com/drokian/approval-scheme-process/blob/main/docs/diagrams/README.md
+    about: Check the diagrams and related visual documentation before opening an issue.

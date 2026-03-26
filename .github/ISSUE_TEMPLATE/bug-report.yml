@@ -1,0 +1,120 @@
+name: Defect / Regression Report
+description: Report an implementation defect, schema issue, broken behavior, or regression.
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+assignees:
+  - drokian
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for concrete problems in behavior, schema consistency, seed data, navigation, or repository assets.
+
+  - type: dropdown
+    id: defect_type
+    attributes:
+      label: Defect Type
+      description: What kind of defect are you reporting?
+      options:
+        - Functional bug
+        - Schema / seed inconsistency
+        - Documentation mismatch
+        - Broken link / file reference
+        - Diagram / visual mismatch
+        - Regression after a recent change
+    validations:
+      required: true
+
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected Area
+      description: Which area is impacted?
+      placeholder: e.g. db/schema.sql, docs/flows.md, README navigation
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed_behavior
+    attributes:
+      label: Observed Behavior
+      description: What is happening now?
+      placeholder: Describe the current problem clearly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: Describe the correct or intended behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: List the steps needed to reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Navigate to ...
+        3. Observe ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: affected_files
+    attributes:
+      label: Related Files / References
+      description: Which files, documents, diagrams, or schema areas are involved?
+      placeholder: e.g. db/seed.sql, docs/security-levels.tr.md
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How serious is this issue?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: impact_areas
+    attributes:
+      label: Related Impact Areas
+      options:
+        - label: Architecture
+        - label: Flows
+        - label: Edge cases
+        - label: Governance / compliance
+        - label: Citizen log access
+        - label: Session / token expiry
+        - label: Data model / schema
+        - label: Seed data
+        - label: Diagrams
+        - label: Bilingual consistency
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Check List
+      options:
+        - label: I searched for similar issues first.
+          required: true
+        - label: I did not include secrets or sensitive data.
+          required: true
+        - label: I provided enough detail to investigate the issue.
+          required: true

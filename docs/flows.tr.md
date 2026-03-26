@@ -2,7 +2,7 @@
 
 Bu doküman, Approval Scheme Process sisteminin temel operasyonel akışlarını tanımlar. Yüksek seviye mimariyi adım adım istek işleme, onay yönetimi ve loglama davranışı ile detaylandırır.
 
-[English version](flows.md) | [Mimari](architecture.tr.md)
+[English version](flows.md) | [Mimari](architecture.tr.md) | [Kenar Durumlar](edge-cases.tr.md) | [Vatandaş Log Erişimi](citizen-log-access.tr.md) | [Oturum ve Token Süre Sonu](session-and-token-expiry.tr.md)
 
 ## 1. Kapsam
 
@@ -36,6 +36,8 @@ Vatandaş -> Randevu Sistemi -> Oturum Motoru -> Çalışan -> Erişim Motoru ->
 6. Ek onay gerekmez.
 7. Sorgu çalıştırılır ve istek sonucu loglanır.
 
+Oturum süresi dolmuş veya kapanmışsa bu akış durmalı ve istek bağlam içi kalmamalıdır. Bkz. [session-and-token-expiry.tr.md](session-and-token-expiry.tr.md).
+
 ## 3. Bağlam Dışı Sorgu Akışı
 
 Bu akış, bir çalışanın geçerli bir oturum olmadan veya atanmış oturum bağlamı dışında veri sorgulamaya çalıştığı durumda geçerlidir.
@@ -55,6 +57,8 @@ Bu akış, bir çalışanın geçerli bir oturum olmadan veya atanmış oturum b
 9. Gerekli tüm onaylar verilirse sorguya izin verilir.
 10. Herhangi bir adım reddedilirse, süresi dolarsa veya politika kontrolü başarısız olursa sorgu reddedilir.
 11. İstek, onay geçmişi ve nihai sonuç loglanır.
+
+Kullanıcı oturumu zaman aşımı ile onay adımı süresinin dolması ayrı kontroller olarak ele alınmalıdır. Bkz. [session-and-token-expiry.tr.md](session-and-token-expiry.tr.md).
 
 ## 4. Onay Akışı
 
@@ -114,7 +118,15 @@ Operasyonel akışlar şu durumlar için de davranış tanımlamalıdır:
 - Tekrarlayan reddedilmiş erişim girişimleri
 - Mesai dışında yüksek riskli erişim
 
-## 7. Özet
+Bu senaryolar için detaylı operasyonel beklentiler [edge-cases.tr.md](edge-cases.tr.md) içinde tanımlanmıştır.
+
+## 7. Vatandaş Log Erişimi Notu
+
+Genel model, vatandaşın kendi kayıtlarına ilişkin erişim geçmişini inceleyebileceği ayrı bir vatandaş odaklı akışı da desteklemelidir.
+
+Şeffaflık odaklı bu akış [citizen-log-access.tr.md](citizen-log-access.tr.md) içinde tanımlanmıştır ve kurum içi çalışan denetim incelemesinden ayrı ele alınmalıdır.
+
+## 8. Özet
 
 Bu akışlar Approval Scheme Process sisteminin operasyonel davranışını tanımlar:
 

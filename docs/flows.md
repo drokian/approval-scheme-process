@@ -2,7 +2,7 @@
 
 This document describes the core operational flows of the Approval Scheme Process. It expands the high-level architecture with step-by-step request handling, approval processing, and logging behavior.
 
-[Turkce surum](flows.tr.md) | [Architecture](architecture.md)
+[Turkce surum](flows.tr.md) | [Architecture](architecture.md) | [Edge Cases](edge-cases.md) | [Citizen Log Access](citizen-log-access.md) | [Session and Token Expiry](session-and-token-expiry.md)
 
 ## 1. Scope
 
@@ -36,6 +36,8 @@ Citizen -> Appointment System -> Session Engine -> Employee -> Access Engine -> 
 6. No additional approval is required.
 7. The query is executed and the request outcome is logged.
 
+If the session is expired or closed, this flow should stop and the request should not remain in-context. See [session-and-token-expiry.md](session-and-token-expiry.md).
+
 ## 3. Out-of-Context Query Flow
 
 This flow applies when an employee attempts to query data without a valid session or outside the assigned session context.
@@ -55,6 +57,8 @@ Employee -> Access Engine -> Approval Engine -> Logging -> Allowed or Denied
 9. If all required approvals are granted, the query is allowed.
 10. If any step is rejected, expired, or fails policy checks, the query is denied.
 11. The request, approval history, and final outcome are logged.
+
+User-session timeout and approval-step expiration should be handled separately. See [session-and-token-expiry.md](session-and-token-expiry.md).
 
 ## 4. Approval Workflow Flow
 
@@ -114,7 +118,15 @@ Operational flows should also define handling for:
 - Repeated denied access attempts
 - High-risk access outside working hours
 
-## 7. Summary
+See [edge-cases.md](edge-cases.md) for the detailed operational expectations for these scenarios.
+
+## 7. Citizen Log Access Note
+
+The overall model should also support a separate citizen-facing flow for reviewing access history related to the citizen's own records.
+
+This transparency-oriented flow is documented in [citizen-log-access.md](citizen-log-access.md) and should remain separate from internal employee audit review.
+
+## 8. Summary
 
 These flows define the operational behavior of the Approval Scheme Process:
 

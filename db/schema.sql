@@ -126,17 +126,63 @@ CREATE TABLE appointment_targets (
 CREATE TABLE sessions (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     appointment_id BIGINT NOT NULL UNIQUE,
-    assigned_user_id BIGINT NOT NULL,
+    current_assigned_user_id BIGINT,
     status VARCHAR(50) NOT NULL DEFAULT 'active',
     activated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP,
+    last_activity_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     closed_at TIMESTAMP,
+    invalidated_at TIMESTAMP,
+    invalidation_reason VARCHAR(100),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_sessions_appointment
         FOREIGN KEY (appointment_id) REFERENCES appointments (id),
-    CONSTRAINT fk_sessions_assigned_user
-        FOREIGN KEY (assigned_user_id) REFERENCES users (id),
+    CONSTRAINT fk_sessions_current_assigned_user
+        FOREIGN KEY (current_assigned_user_id) REFERENCES users (id),
+    CONSTRAINT ck_sessions_status
+        CHECK (status IN ('pending_activation', 'active', 'paused', 'closed', 'expired', 'invalidated')),
+    CONSTRAINT ck_sessions_expiry_time
+        CHECK (expires_at IS NULL OR expires_at >= activated_at),
+    CONSTRAINT ck_sessions_last_activity
+        CHECK (last_activity_at >= activated_at),
     CONSTRAINT ck_sessions_close_time
-        CHECK (closed_at IS NULL OR closed_at >= activated_at)
+        CHECK (closed_at IS NULL OR closed_at >= activated_at),
+    CONSTRAINT ck_sessions_invalidation_time
+        CHECK (invalidated_at IS NULL OR invalidated_at >= activated_at),
+    CONSTRAINT ck_sessions_invalidation_reason
+        CHECK (
+            (invalidated_at IS NULL AND invalidation_reason IS NULL)
+            OR (invalidated_at IS NOT NULL AND invalidation_reason IS NOT NULL)
+        )
+);
+
+CREATE TABLE session_assignments (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    session_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    assignment_type VARCHAR(50) NOT NULL DEFAULT 'primary',
+    assignment_reason VARCHAR(500),
+    assigned_by_user_id BIGINT,
+    assigned_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    released_at TIMESTAMP,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    CONSTRAINT fk_session_assignments_session
+        FOREIGN KEY (session_id) REFERENCES sessions (id),
+    CONSTRAINT fk_session_assignments_user
+        FOREIGN KEY (user_id) REFERENCES users (id),
+    CONSTRAINT fk_session_assignments_assigned_by
+        FOREIGN KEY (assigned_by_user_id) REFERENCES users (id),
+    CONSTRAINT uq_session_assignments_unique
+        UNIQUE (session_id, user_id, assigned_at),
+    CONSTRAINT ck_session_assignments_type
+        CHECK (assignment_type IN ('primary', 'delegate', 'temporary', 'reassigned')),
+    CONSTRAINT ck_session_assignments_release_time
+        CHECK (released_at IS NULL OR released_at >= assigned_at),
+    CONSTRAINT ck_session_assignments_current
+        CHECK (
+            (is_current = TRUE AND released_at IS NULL)
+            OR (is_current = FALSE AND released_at IS NOT NULL)
+        )
 );
 
 CREATE TABLE queries (
@@ -225,7 +271,10 @@ CREATE INDEX idx_approval_schemes_operation_type ON approval_schemes (operation_
 CREATE INDEX idx_approval_scheme_steps_scheme ON approval_scheme_steps (approval_scheme_id);
 CREATE INDEX idx_appointments_operation_type ON appointments (operation_type_id);
 CREATE INDEX idx_appointment_targets_appointment ON appointment_targets (appointment_id);
-CREATE INDEX idx_sessions_assigned_user ON sessions (assigned_user_id);
+CREATE INDEX idx_sessions_current_assigned_user ON sessions (current_assigned_user_id);
+CREATE INDEX idx_session_assignments_session ON session_assignments (session_id);
+CREATE INDEX idx_session_assignments_user ON session_assignments (user_id);
+CREATE INDEX idx_session_assignments_current ON session_assignments (session_id, is_current);
 CREATE INDEX idx_queries_requested_by ON queries (requested_by_user_id);
 CREATE INDEX idx_queries_session ON queries (session_id);
 CREATE INDEX idx_queries_operation_type ON queries (operation_type_id);

@@ -1,0 +1,177 @@
+name: Standard Request / Development Proposal
+description: Propose a feature, improvement, documentation change, or model update.
+title: "[Request]: "
+labels:
+  - enhancement
+  - needs-triage
+assignees:
+  - drokian
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for filling out this form step by step.
+
+        This repository combines architecture, compliance, flow design, schema design, and implementation planning. The more precise your request is, the easier it becomes to evaluate impact across documents and the data model.
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Information
+      description: How can we reach you if needed?
+      placeholder: e.g. email@example.com
+    validations:
+      required: false
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request Type
+      description: What is this request about?
+      options:
+        - New Feature
+        - Improvement
+        - Documentation
+        - Security / Compliance
+        - Data Model / Schema
+        - Diagram / Visualization
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_scope
+    attributes:
+      label: Change Scope
+      description: What kind of change is primarily expected?
+      options:
+        - Concept / policy definition
+        - Documentation update
+        - Schema / seed update
+        - Mixed change across multiple areas
+    validations:
+      required: true
+
+  - type: input
+    id: context
+    attributes:
+      label: Context / System
+      description: Which system / module / process is this request for?
+      placeholder: e.g. approval-scheme-process / security levels
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Short Summary
+      description: Summarize the request in a single paragraph.
+      placeholder: What do you want and why is it important?
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Detailed Description
+      description: |
+        Please fill out the following sections as much as possible:
+        - Current situation
+        - Desired new behavior
+        - Acceptance criteria (done definition)
+        - Constraints or non-goals
+      placeholder: Please provide a detailed description here.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: impacted_areas
+    attributes:
+      label: Impacted Areas
+      description: Select all areas likely to be affected.
+      options:
+        - label: Architecture
+        - label: Core flows
+        - label: Edge cases
+        - label: Security levels
+        - label: Governance / compliance
+        - label: Citizen log access
+        - label: Session / token expiry
+        - label: Data model / schema
+        - label: Seed data
+        - label: Diagrams / visuals
+        - label: README / navigation
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_artifacts
+    attributes:
+      label: Related Documents / Files
+      description: Which documents, diagrams, or schema files are likely involved?
+      placeholder: e.g. docs/flows.md, docs/edge-cases.tr.md, db/schema.sql
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact / Priority
+      description: |
+        Which users / processes are affected by this change?
+        Why should it be done now?
+      placeholder: Describe the impact and priority.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: risk_level
+    attributes:
+      label: Risk / Sensitivity
+      description: What is the expected risk profile of this request?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the concrete conditions that should be true when this request is complete.
+      placeholder: |
+        - Flow document updated
+        - Turkish counterpart added
+        - Schema and seed aligned
+        - References added to README
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Check List
+      description: Please ensure the following before submitting.
+      options:
+        - label: I have searched for similar issues.
+          required: true
+        - label: I have ensured that no sensitive information (passwords, tokens, etc.) is shared.
+          required: true
+        - label: I have clearly defined the scope of this request.
+          required: true
+        - label: I have identified the affected documents, schema areas, or flows as much as possible.
+          required: false
+        - label: If this changes Turkish or English documentation, I expect bilingual alignment.
+          required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References / Links
+      description: You can add links to relevant documents, issues, PRs, design documents, etc.
+      placeholder: e.g. #123, architecture document link, Figma link, etc.
+    validations:
+      required: false
