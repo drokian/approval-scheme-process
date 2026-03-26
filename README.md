@@ -80,6 +80,17 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 - Draft schema: [db/schema.sql](db/schema.sql)
 - Example seed data: [db/seed.sql](db/seed.sql)
 
+## Visual Diagrams
+
+- English access-control flow: [docs/diagrams/access-control-flow.svg](docs/diagrams/access-control-flow.svg)
+- Turkish access-control flow: [docs/diagrams/access-control-flow.tr.svg](docs/diagrams/access-control-flow.tr.svg)
+- English approval workflow: [docs/diagrams/approval-workflow.svg](docs/diagrams/approval-workflow.svg)
+- Turkish approval workflow: [docs/diagrams/approval-workflow.tr.svg](docs/diagrams/approval-workflow.tr.svg)
+- English architecture overview: [docs/diagrams/architecture-overview.svg](docs/diagrams/architecture-overview.svg)
+- Turkish architecture overview: [docs/diagrams/architecture-overview.tr.svg](docs/diagrams/architecture-overview.tr.svg)
+- English security levels: [docs/diagrams/security-levels.svg](docs/diagrams/security-levels.svg)
+- Turkish security levels: [docs/diagrams/security-levels.tr.svg](docs/diagrams/security-levels.tr.svg)
+
 ## Roadmap
 
 - Phase 1: Core documentation and data-model draft

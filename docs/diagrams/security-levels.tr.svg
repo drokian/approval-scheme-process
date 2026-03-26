@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="980" height="760" viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Güvenlik seviyeleri</title>
+  <desc id="desc">0 ile 4 arasındaki güvenlik seviyelerini, örneklerini ve onay yoğunluğunu gösteren etkileşimli tablo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F6F2"/>
+      <stop offset="100%" stop-color="#FAFAF9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#D9D5CB" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <style>
+    text {
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .title { font-size: 16px; font-weight: 700; fill: #2C2C2A; }
+    .subtitle { font-size: 12px; fill: #666257; }
+    .header { font-size: 12px; font-weight: 600; fill: #666257; }
+    .label { font-size: 13px; font-weight: 600; }
+    .small { font-size: 12px; }
+    .tiny { font-size: 11px; }
+    .row { cursor: pointer; }
+    .row .surface {
+      transition: stroke-width 0.2s ease, filter 0.2s ease;
+    }
+    .row:hover .surface {
+      stroke-width: 1.4;
+      filter: url(#shadow);
+    }
+    .row:hover .headline {
+      text-decoration: underline;
+    }
+  </style>
+
+  <rect width="980" height="760" fill="url(#bg)"/>
+  <rect x="28" y="24" width="924" height="712" rx="24" fill="#FCFCFB" stroke="#E5E1D7"/>
+
+  <text x="64" y="68" class="title">Güvenlik seviyeleri</text>
+  <text x="64" y="92" class="subtitle">Bağlam dışı erişim sınıflandırması ve onay yoğunluğu için temel model</text>
+
+  <text x="78" y="132" class="header">Seviye</text>
+  <text x="156" y="132" class="header">Anlamı</text>
+  <text x="475" y="132" class="header">Tipik örnekler</text>
+  <text x="808" y="132" class="header">Onay yoğunluğu</text>
+
+  <a href="../security-levels.tr.md">
+    <g class="row">
+      <title>Seviye 0: geçerli aktif oturum ve eşleşen hedef, onay gerektirmez.</title>
+      <rect class="surface" x="52" y="150" width="876" height="92" rx="18" fill="#E6F4EF" stroke="#1D9E75"/>
+      <circle cx="92" cy="196" r="24" fill="#1D9E75"/>
+      <text x="92" y="202" text-anchor="middle" class="label" fill="#FFFFFF">0</text>
+      <text x="156" y="184" class="headline label" fill="#085041">Bağlam tabanlı serbest erişim</text>
+      <text x="156" y="202" class="small" fill="#0F6E56">Talep geçerli aktif oturum içinde kalır</text>
+      <text x="156" y="218" class="small" fill="#0F6E56">ve atanan hedefle eşleşir.</text>
+      <text x="475" y="184" class="small" fill="#0F6E56">Aktif randevu oturumunda vatandaş kaydı sorgulama</text>
+      <text x="475" y="206" class="small" fill="#0F6E56">Randevu bağlamına doğrudan bağlı iş akışı adımları</text>
+      <rect x="808" y="174" width="90" height="36" rx="14" fill="#1D9E75" stroke="#0F6E56"/>
+      <text x="853" y="197" text-anchor="middle" class="small" fill="#FFFFFF">Onay yok</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.tr.md">
+    <g class="row">
+      <title>Seviye 1: düşük riskli bağlam dışı erişim, tek onay adımı gerektirir.</title>
+      <rect class="surface" x="52" y="258" width="876" height="92" rx="18" fill="#EEF6E1" stroke="#6C9A2A"/>
+      <circle cx="92" cy="304" r="24" fill="#6C9A2A"/>
+      <text x="92" y="310" text-anchor="middle" class="label" fill="#FFFFFF">1</text>
+      <text x="156" y="292" class="headline label" fill="#284507">Düşük riskli bağlam dışı erişim</text>
+      <text x="156" y="310" class="small" fill="#416A12">Sınırlı hassasiyet taşıyan</text>
+      <text x="156" y="326" class="small" fill="#416A12">ve düşük etkili olması beklenen talepler.</text>
+      <text x="475" y="292" class="small" fill="#416A12">Aktif oturum dışında temel kimlik doğrulama</text>
+      <text x="475" y="314" class="small" fill="#416A12">Düşük etkili tutarlılık kontrolleri</text>
+      <circle cx="848" cy="304" r="8" fill="#6C9A2A"/>
+      <text x="870" y="309" class="small" fill="#416A12">1 adım</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.tr.md">
+    <g class="row">
+      <title>Seviye 2: orta riskli erişim, iki onay adımı gerektirir.</title>
+      <rect class="surface" x="52" y="366" width="876" height="92" rx="18" fill="#FAEEDA" stroke="#BA7517"/>
+      <circle cx="92" cy="412" r="24" fill="#BA7517"/>
+      <text x="92" y="418" text-anchor="middle" class="label" fill="#FFFFFF">2</text>
+      <text x="156" y="400" class="headline label" fill="#633806">Orta riskli erişim</text>
+      <text x="156" y="418" class="small" fill="#854F0B">Normal randevu bağlamı dışındaki kişisel</text>
+      <text x="156" y="434" class="small" fill="#854F0B">ya da operasyonel olarak hassas erişimler.</text>
+      <text x="475" y="400" class="small" fill="#854F0B">Geçmiş işlem incelemesi</text>
+      <text x="475" y="422" class="small" fill="#854F0B">Kişisel veri içeren birimler arası sorgu</text>
+      <circle cx="830" cy="412" r="8" fill="#BA7517"/>
+      <circle cx="852" cy="412" r="8" fill="#BA7517"/>
+      <text x="874" y="417" class="small" fill="#854F0B">2 adım</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.tr.md">
+    <g class="row">
+      <title>Seviye 3: yüksek riskli erişim, üç kontrol noktası gerektirir.</title>
+      <rect class="surface" x="52" y="474" width="876" height="92" rx="18" fill="#FDEFE8" stroke="#993C1D"/>
+      <circle cx="92" cy="520" r="24" fill="#993C1D"/>
+      <text x="92" y="526" text-anchor="middle" class="label" fill="#FFFFFF">3</text>
+      <text x="156" y="508" class="headline label" fill="#712B13">Yüksek riskli erişim</text>
+      <text x="156" y="526" class="small" fill="#993C1D">Hukuken hassas, korunan ya da</text>
+      <text x="156" y="542" class="small" fill="#993C1D">kurumsal risk taşıyan erişim talepleri.</text>
+      <text x="475" y="508" class="small" fill="#993C1D">Korunan kişiler veya kamu görevlileri</text>
+      <text x="475" y="530" class="small" fill="#993C1D">Hassas demografik ya da sağlıkla ilgili kayıtlar</text>
+      <circle cx="808" cy="520" r="8" fill="#993C1D"/>
+      <circle cx="830" cy="520" r="8" fill="#993C1D"/>
+      <circle cx="852" cy="520" r="8" fill="#993C1D"/>
+      <text x="874" y="525" class="small" fill="#993C1D">3 adım</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.tr.md">
+    <g class="row">
+      <title>Seviye 4: kritik erişim, çoklu onay ve özel yetkilendirme gerektirir.</title>
+      <rect class="surface" x="52" y="582" width="876" height="92" rx="18" fill="#FCEBEB" stroke="#A32D2D"/>
+      <circle cx="92" cy="628" r="24" fill="#A32D2D"/>
+      <text x="92" y="634" text-anchor="middle" class="label" fill="#FFFFFF">4</text>
+      <text x="156" y="616" class="headline label" fill="#791F1F">Kritik erişim</text>
+      <text x="156" y="634" class="small" fill="#A32D2D">Açık gerekçe ve en güçlü gözetim</text>
+      <text x="156" y="650" class="small" fill="#A32D2D">gerektiren istisnai erişim talepleri.</text>
+      <text x="475" y="616" class="small" fill="#A32D2D">Kriz yönetimi veya büyük soruşturma kayıtları</text>
+      <text x="475" y="638" class="small" fill="#A32D2D">Özellikle kısıtlı veri kümeleri veya yüksek profilli</text>
+      <text x="475" y="656" class="small" fill="#A32D2D">vakalar</text>
+      <circle cx="786" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="808" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="830" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="852" cy="628" r="8" fill="#A32D2D"/>
+      <text x="874" y="633" class="small" fill="#A32D2D">4+ adım</text>
+    </g>
+  </a>
+
+  <rect x="64" y="682" width="864" height="40" rx="12" fill="#FFFFFF" stroke="#D9D5CB"/>
+  <text x="496" y="699" text-anchor="middle" class="tiny" fill="#666257">Tüm seviyeler kayıt altına alınır.</text>
+  <text x="496" y="713" text-anchor="middle" class="tiny" fill="#666257">Ayrıntılı doküman için ilgili satıra tıklayabilirsiniz.</text>
+</svg>

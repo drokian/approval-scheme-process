@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="980" height="760" viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Security levels</title>
+  <desc id="desc">Interactive matrix showing security levels 0 through 4, with examples and approval intensity.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F6F2"/>
+      <stop offset="100%" stop-color="#FAFAF9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#D9D5CB" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <style>
+    text {
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .title { font-size: 16px; font-weight: 700; fill: #2C2C2A; }
+    .subtitle { font-size: 12px; fill: #666257; }
+    .header { font-size: 12px; font-weight: 600; fill: #666257; }
+    .label { font-size: 13px; font-weight: 600; }
+    .small { font-size: 12px; }
+    .tiny { font-size: 11px; }
+    .row { cursor: pointer; }
+    .row .surface {
+      transition: stroke-width 0.2s ease, filter 0.2s ease;
+    }
+    .row:hover .surface {
+      stroke-width: 1.4;
+      filter: url(#shadow);
+    }
+    .row:hover .headline {
+      text-decoration: underline;
+    }
+  </style>
+
+  <rect width="980" height="760" fill="url(#bg)"/>
+  <rect x="28" y="24" width="924" height="712" rx="24" fill="#FCFCFB" stroke="#E5E1D7"/>
+
+  <text x="64" y="68" class="title">Security levels</text>
+  <text x="64" y="92" class="subtitle">Baseline model for out-of-context access classification and approval intensity</text>
+
+  <text x="78" y="132" class="header">Level</text>
+  <text x="156" y="132" class="header">Meaning</text>
+  <text x="475" y="132" class="header">Typical examples</text>
+  <text x="808" y="132" class="header">Approval intensity</text>
+
+  <a href="../security-levels.md">
+    <g class="row">
+      <title>Level 0: valid active session and matching target, no approval required.</title>
+      <rect class="surface" x="52" y="150" width="876" height="92" rx="18" fill="#E6F4EF" stroke="#1D9E75"/>
+      <circle cx="92" cy="196" r="24" fill="#1D9E75"/>
+      <text x="92" y="202" text-anchor="middle" class="label" fill="#FFFFFF">0</text>
+      <text x="156" y="184" class="headline label" fill="#085041">Context-based free access</text>
+      <text x="156" y="202" class="small" fill="#0F6E56">The request remains inside a valid active session</text>
+      <text x="156" y="218" class="small" fill="#0F6E56">and matches the assigned target.</text>
+      <text x="475" y="184" class="small" fill="#0F6E56">Citizen record lookup during the active appointment session</text>
+      <text x="475" y="206" class="small" fill="#0F6E56">Workflow actions directly tied to the appointment context</text>
+      <rect x="808" y="174" width="90" height="36" rx="14" fill="#1D9E75" stroke="#0F6E56"/>
+      <text x="853" y="197" text-anchor="middle" class="small" fill="#FFFFFF">No approval</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.md">
+    <g class="row">
+      <title>Level 1: low-risk out-of-context access with one approval step.</title>
+      <rect class="surface" x="52" y="258" width="876" height="92" rx="18" fill="#EEF6E1" stroke="#6C9A2A"/>
+      <circle cx="92" cy="304" r="24" fill="#6C9A2A"/>
+      <text x="92" y="310" text-anchor="middle" class="label" fill="#FFFFFF">1</text>
+      <text x="156" y="292" class="headline label" fill="#284507">Low-risk out-of-context access</text>
+      <text x="156" y="310" class="small" fill="#416A12">Limited sensitivity</text>
+      <text x="156" y="326" class="small" fill="#416A12">with low expected impact.</text>
+      <text x="475" y="292" class="small" fill="#416A12">Basic identity verification outside the active session</text>
+      <text x="475" y="314" class="small" fill="#416A12">Low-impact consistency checks</text>
+      <circle cx="848" cy="304" r="8" fill="#6C9A2A"/>
+      <text x="870" y="309" class="small" fill="#416A12">1 step</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.md">
+    <g class="row">
+      <title>Level 2: medium-risk access with two approval steps.</title>
+      <rect class="surface" x="52" y="366" width="876" height="92" rx="18" fill="#FAEEDA" stroke="#BA7517"/>
+      <circle cx="92" cy="412" r="24" fill="#BA7517"/>
+      <text x="92" y="418" text-anchor="middle" class="label" fill="#FFFFFF">2</text>
+      <text x="156" y="400" class="headline label" fill="#633806">Medium-risk access</text>
+      <text x="156" y="418" class="small" fill="#854F0B">Personal or operationally sensitive access</text>
+      <text x="156" y="434" class="small" fill="#854F0B">outside normal appointment context.</text>
+      <text x="475" y="400" class="small" fill="#854F0B">Historical transaction review</text>
+      <text x="475" y="422" class="small" fill="#854F0B">Cross-department lookup involving personal data</text>
+      <circle cx="830" cy="412" r="8" fill="#BA7517"/>
+      <circle cx="852" cy="412" r="8" fill="#BA7517"/>
+      <text x="874" y="417" class="small" fill="#854F0B">2 steps</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.md">
+    <g class="row">
+      <title>Level 3: high-risk access with three control points.</title>
+      <rect class="surface" x="52" y="474" width="876" height="92" rx="18" fill="#FDEFE8" stroke="#993C1D"/>
+      <circle cx="92" cy="520" r="24" fill="#993C1D"/>
+      <text x="92" y="526" text-anchor="middle" class="label" fill="#FFFFFF">3</text>
+      <text x="156" y="508" class="headline label" fill="#712B13">High-risk access</text>
+      <text x="156" y="526" class="small" fill="#993C1D">Legally sensitive, protected, or</text>
+      <text x="156" y="542" class="small" fill="#993C1D">institutionally risky access requests.</text>
+      <text x="475" y="508" class="small" fill="#993C1D">Protected persons or public officials</text>
+      <text x="475" y="530" class="small" fill="#993C1D">Sensitive demographic or health-related records</text>
+      <circle cx="808" cy="520" r="8" fill="#993C1D"/>
+      <circle cx="830" cy="520" r="8" fill="#993C1D"/>
+      <circle cx="852" cy="520" r="8" fill="#993C1D"/>
+      <text x="874" y="525" class="small" fill="#993C1D">3 steps</text>
+    </g>
+  </a>
+
+  <a href="../security-levels.md">
+    <g class="row">
+      <title>Level 4: critical access with multiple approvals and special authorization.</title>
+      <rect class="surface" x="52" y="582" width="876" height="92" rx="18" fill="#FCEBEB" stroke="#A32D2D"/>
+      <circle cx="92" cy="628" r="24" fill="#A32D2D"/>
+      <text x="92" y="634" text-anchor="middle" class="label" fill="#FFFFFF">4</text>
+      <text x="156" y="616" class="headline label" fill="#791F1F">Critical access</text>
+      <text x="156" y="634" class="small" fill="#A32D2D">Exceptional access that needs</text>
+      <text x="156" y="650" class="small" fill="#A32D2D">explicit justification and the strongest oversight.</text>
+      <text x="475" y="616" class="small" fill="#A32D2D">Crisis response or major investigation records</text>
+      <text x="475" y="638" class="small" fill="#A32D2D">Especially restricted datasets or high-profile cases</text>
+      <circle cx="786" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="808" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="830" cy="628" r="8" fill="#A32D2D"/>
+      <circle cx="852" cy="628" r="8" fill="#A32D2D"/>
+      <text x="874" y="633" class="small" fill="#A32D2D">4+ steps</text>
+    </g>
+  </a>
+
+  <rect x="64" y="682" width="864" height="40" rx="12" fill="#FFFFFF" stroke="#D9D5CB"/>
+  <text x="496" y="699" text-anchor="middle" class="tiny" fill="#666257">All levels are logged.</text>
+  <text x="496" y="713" text-anchor="middle" class="tiny" fill="#666257">Click any row to open the detailed security-level document.</text>
+</svg>

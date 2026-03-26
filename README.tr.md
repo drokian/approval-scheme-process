@@ -80,6 +80,17 @@ Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru
 - Şema taslağı: [db/schema.sql](db/schema.sql)
 - Örnek seed verisi: [db/seed.sql](db/seed.sql)
 
+## Görsel Diyagramlar
+
+- İngilizce erişim kontrol akışı: [docs/diagrams/access-control-flow.svg](docs/diagrams/access-control-flow.svg)
+- Türkçe erişim kontrol akışı: [docs/diagrams/access-control-flow.tr.svg](docs/diagrams/access-control-flow.tr.svg)
+- İngilizce onay iş akışı: [docs/diagrams/approval-workflow.svg](docs/diagrams/approval-workflow.svg)
+- Türkçe onay iş akışı: [docs/diagrams/approval-workflow.tr.svg](docs/diagrams/approval-workflow.tr.svg)
+- İngilizce mimari genel görünüm: [docs/diagrams/architecture-overview.svg](docs/diagrams/architecture-overview.svg)
+- Türkçe mimari genel görünüm: [docs/diagrams/architecture-overview.tr.svg](docs/diagrams/architecture-overview.tr.svg)
+- İngilizce güvenlik seviyeleri: [docs/diagrams/security-levels.svg](docs/diagrams/security-levels.svg)
+- Türkçe güvenlik seviyeleri: [docs/diagrams/security-levels.tr.svg](docs/diagrams/security-levels.tr.svg)
+
 ## Yol Haritası
 
 - Faz 1: Temel dokümantasyon ve veri modeli taslağı
