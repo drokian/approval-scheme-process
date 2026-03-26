@@ -81,6 +81,8 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 - Turkish citizen log access: [docs/citizen-log-access.tr.md](docs/citizen-log-access.tr.md)
 - English session and token expiry: [docs/session-and-token-expiry.md](docs/session-and-token-expiry.md)
 - Turkish session and token expiry: [docs/session-and-token-expiry.tr.md](docs/session-and-token-expiry.tr.md)
+- English development workflow: [docs/development-workflow.md](docs/development-workflow.md)
+- Turkish development workflow: [docs/development-workflow.tr.md](docs/development-workflow.tr.md)
 - English data model: [docs/data-model.md](docs/data-model.md)
 - Turkish data model: [docs/data-model.tr.md](docs/data-model.tr.md)
 - Draft schema: [db/schema.sql](db/schema.sql)
