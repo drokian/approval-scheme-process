@@ -56,3 +56,5 @@ This repository is expected to move toward branch-based implementation and sprin
 - keep issue scope small enough for sprint planning
 - make acceptance criteria explicit in issue descriptions
 - link implementation branches and pull requests back to the originating issue
+
+The working standard for branches, commits, pull requests, and tests is documented in [docs/development-workflow.md](docs/development-workflow.md).
