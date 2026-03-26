@@ -1,143 +1,77 @@
 # Approval Scheme Process
 
-A general-purpose, context-aware access governance and multi-level approval framework for government institutions.
+A context-aware access governance and multi-level approval framework for government institutions.
 
----
+[Turkce README](README.tr.md) | [Architecture](docs/architecture.md) | [Turkce Mimari](docs/architecture.tr.md)
 
-# English: Context-Based Access and Multi-Level Approval System
+## Project Status
 
-This project provides a comprehensive access governance architecture for all transactions in government institutions that:
+This repository is currently in the concept and documentation phase.
 
-- Allows employees to make free queries only within the context of **appointment-based transactions**,
-- Ensures all out-of-context queries pass through at least one approval process according to **security levels defined by transaction type**,
-- Enables the definition of **dynamic approval schemes** for each transaction type.
+The current scope includes:
 
-This project is designed to enhance personal data security, prevent abuse, and make access authorizations context-based in public institutions.
+- Vision and problem definition
+- High-level system architecture
+- Draft approval and access-control model
+- Initial roadmap for implementation
 
----
+Planned artifacts such as `db/schema.sql` are not yet included in the repository.
+
+## Overview
+
+This project proposes a unified access-governance model for public-sector systems that:
+
+- Allows employees to make free queries only within the context of appointment-based transactions
+- Requires approval for out-of-context queries based on security levels defined per operation type
+- Supports dynamic approval schemes for different operation types
+- Provides full logging, traceability, and auditability
+
+The goal is to reduce unauthorized access to personal data, prevent misuse, and move institutions from reactive auditing to proactive control.
 
 ## Why This Project Exists
 
-Government information systems often allow broad internal access, relying on after-the-fact auditing rather than proactive access control.  
-This creates risks such as:
+Many government information systems still allow broad internal access and rely mostly on after-the-fact review. This creates risks such as:
 
-- Unauthorized access to personal data  
-- Curiosity-driven or politically motivated queries  
-- Lack of standardized approval workflows  
-- Inconsistent security practices across institutions  
+- Unauthorized access to personal data
+- Curiosity-driven or politically motivated queries
+- Inconsistent approval workflows
+- Uneven security practices across institutions
 
-This project proposes a unified, context-aware, security-level–based access governance model.
+Approval Scheme Process introduces a context-based and security-level-driven access model that can be adapted across agencies.
 
----
+## Repository Structure
 
-## Who Is This For?
+- `README.md`: English project overview
+- `README.tr.md`: Turkish project overview
+- `docs/architecture.md`: English architecture document
+- `docs/architecture.tr.md`: Turkish architecture document
 
-- Government IT architects  
-- Public sector software developers  
-- Security and compliance teams  
-- Researchers working on digital governance  
-- Open-source contributors interested in access control systems  
+## Core Capabilities
 
----
-
-## Features
-
-- Context-based access control  
-- Security levels defined per transaction type  
-- Dynamic approval scheme creation  
-- Multi-level approval mechanism  
-- Full logging and auditing  
-- Institution-independent general architecture  
-
----
+- Context-based access control
+- Security levels defined per operation type
+- Dynamic approval scheme definition
+- Multi-level approval workflows
+- Full logging and audit support
+- Institution-agnostic architecture
 
 ## High-Level Architecture
 
-User → Appointment System → Session Engine → Access Engine → Approval Engine → Logging & Audit
+User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine -> Logging and Audit
 
----
+## Documentation
+
+- English architecture: [docs/architecture.md](docs/architecture.md)
+- Turkish architecture: [docs/architecture.tr.md](docs/architecture.tr.md)
 
 ## Roadmap
 
-- **Phase 1:** Core documentation and database schema  
-- **Phase 2:** Access Engine prototype  
-- **Phase 3:** Approval Engine implementation  
-- **Phase 4:** Logging & audit layer  
-- **Phase 5:** Example integrations (land registry, population registry, tax office)  
-
----
+- Phase 1: Core documentation and data-model draft
+- Phase 2: Access Engine prototype
+- Phase 3: Approval Engine implementation
+- Phase 4: Logging and audit layer
+- Phase 5: Example integrations for public-sector domains
 
 ## License
 
-MIT License – free to use, modify, and distribute.
-
----
-
-# Turkish: Bağlam Tabanlı Erişim ve Çok Kademeli Onay Sistemi
-
-Bu proje, devlet kurumlarında yapılan tüm işlemler için:
-
-- Memurların yalnızca **randevuya bağlı işlem bağlamında** serbest sorgu yapabilmesini,
-- Bağlam dışı tüm sorguların **işlem türüne göre tanımlanmış güvenlik seviyelerine** göre en az bir onaydan geçmesini,
-- Her işlem türü için **dinamik onay şemalarının** tanımlanabilmesini
-
-sağlayan genel bir erişim yönetişim mimarisi sunar.
-
-Bu proje, kamu kurumlarında kişisel veri güvenliğini artırmak, suistimali önlemek ve erişim yetkilerini bağlam tabanlı hale getirmek için tasarlanmıştır.
-
----
-
-## Bu Proje Neden Var?
-
-Birçok devlet bilgi sistemi, geniş iç erişime izin verir ve erişim kontrolünü proaktif olarak değil, **sonradan denetim** yoluyla sağlar.  
-Bu durum şu riskleri doğurur:
-
-- Kişisel verilere yetkisiz erişim  
-- Merak veya siyasi motivasyonla yapılan sorgular  
-- Standart bir onay akışının olmaması  
-- Kurumlar arasında tutarsız güvenlik uygulamaları  
-
-Bu proje, bağlam tabanlı ve güvenlik seviyesine dayalı birleşik bir erişim yönetişim modeli sunar.
-
----
-
-## Kimler İçindir?
-
-- Devlet kurumlarında çalışan BT mimarları  
-- Kamu yazılım geliştiricileri  
-- Güvenlik ve uyumluluk ekipleri  
-- Dijital yönetişim üzerine çalışan araştırmacılar  
-- Erişim kontrol sistemleriyle ilgilenen açık kaynak katkıcıları  
-
----
-
-## Özellikler
-
-- Bağlam tabanlı erişim kontrolü  
-- İşlem türüne göre güvenlik seviyesi tanımlama  
-- Dinamik onay şeması oluşturma  
-- Çok kademeli onay mekanizması  
-- Tam loglama ve denetim  
-- Kurumdan bağımsız genel mimari  
-
----
-
-## Yüksek Seviye Mimari
-
-Kullanıcı → Randevu Sistemi → İşlem Motoru → Erişim Motoru → Onay Motoru → Log & Denetim
-
----
-
-## Yol Haritası
-
-- **Faz 1:** Temel dokümantasyon ve veritabanı şeması  
-- **Faz 2:** Erişim Motoru prototipi  
-- **Faz 3:** Onay Motoru uygulaması  
-- **Faz 4:** Loglama ve denetim katmanı  
-- **Faz 5:** Örnek entegrasyonlar (tapu, nüfus, vergi dairesi)  
-
----
-
-## Lisans
-
-MIT Lisansı – kullanmak, değiştirmek ve dağıtmak serbesttir.
+MIT License. Free to use, modify, and distribute.
