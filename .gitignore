@@ -39,6 +39,7 @@ ScaffoldingReadMe.txt
 # Others
 ~$*
 *~
+*.user
 CodeCoverage/
 
 # MSBuild Binary and Structured Log
@@ -52,3 +53,8 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+# Local CLI state
+.dotnet-cli/
+.vs/
+# Local session notes may contain personal data
+docs/session-notes.tr.md
