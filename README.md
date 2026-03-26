@@ -111,3 +111,5 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 
 MIT License. Free to use, modify, and distribute.
 
+Contributing guidelines: [CONTRIBUTING.md](CONTRIBUTING.md)
+

@@ -110,3 +110,5 @@ Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru
 ## Lisans
 
 MIT Lisansı. Kullanmak, değiştirmek ve dağıtmak serbesttir.
+
+Katkı rehberi: [CONTRIBUTING.md](CONTRIBUTING.md)
