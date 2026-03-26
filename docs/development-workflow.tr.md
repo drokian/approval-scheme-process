@@ -54,6 +54,15 @@ Bu doküman, branch, commit, pull request ve testler için temel çalışma stan
 
 ## 3. Branch Akış Kuralları
 
+- Her yeni faz, sprint, plan veya dosya değişikliği başlamadan önce `develop` branch'ine dönülmelidir
+- Yeni çalışma branch'i açılmadan önce yerel `develop`, `origin/develop` ile eşitlenmelidir
+- Yapılacak işe özel branch, güncel `develop` tabanı üzerinden oluşturulmalıdır
+- Tüm yeni dosya oluşturma ve dosya değişiklikleri doğrudan `develop` üzerinde değil, bu iş branch'i üzerinde yapılmalıdır
+- GitHub branch protection ruleset'i `main` ve `develop` için geçerlidir
+- `main` ve `develop` branch'leri silinemez ve non-fast-forward güncellemeleri kabul etmez
+- `main` ve `develop` üzerindeki değişiklikler pull request üzerinden geçmelidir
+- Korunan branch'ler için izin verilen merge yöntemi yalnızca `squash`tır
+- Mevcut ruleset onaylayıcı review sayısını zorunlu kılmasa da pull request tabanlı entegrasyon yine de mecburidir
 - `feature/*` -> `develop`
 - `fix/*` -> `develop`
 - `docs/*` -> `develop`

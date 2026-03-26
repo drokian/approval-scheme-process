@@ -54,6 +54,15 @@ Example:
 
 ## 3. Branch Flow Rules
 
+- Before starting any new phase, sprint, plan, or file change, return to `develop`
+- Sync local `develop` with `origin/develop` before creating a new work branch
+- Create a task-specific branch from the updated `develop` baseline
+- Perform all file creation and file changes on that task-specific branch, not directly on `develop`
+- GitHub branch protection rules apply to `main` and `develop`
+- `main` and `develop` cannot be deleted and do not allow non-fast-forward updates
+- Changes to `main` and `develop` must go through a pull request
+- The allowed merge method for protected branches is `squash` only
+- The current ruleset does not require an approving review count, but pull-request based integration is still mandatory
 - `feature/*` -> `develop`
 - `fix/*` -> `develop`
 - `docs/*` -> `develop`
