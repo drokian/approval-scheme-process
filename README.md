@@ -81,18 +81,16 @@ User -> Appointment System -> Session Engine -> Access Engine -> Approval Engine
 - Turkish citizen log access: [docs/citizen-log-access.tr.md](docs/citizen-log-access.tr.md)
 - English session and token expiry: [docs/session-and-token-expiry.md](docs/session-and-token-expiry.md)
 - Turkish session and token expiry: [docs/session-and-token-expiry.tr.md](docs/session-and-token-expiry.tr.md)
-- English development workflow: [docs/development-workflow.md](docs/development-workflow.md)
-- Turkish development workflow: [docs/development-workflow.tr.md](docs/development-workflow.tr.md)
 - English MVP scope: [docs/mvp-scope.md](docs/mvp-scope.md)
 - Turkish MVP scope: [docs/mvp-scope.tr.md](docs/mvp-scope.tr.md)
-- English backend sprints: [docs/backend-sprints.md](docs/backend-sprints.md)
-- Turkish backend sprints: [docs/backend-sprints.tr.md](docs/backend-sprints.tr.md)
-- English frontend strategy: [docs/frontend-strategy.md](docs/frontend-strategy.md)
-- Turkish frontend strategy: [docs/frontend-strategy.tr.md](docs/frontend-strategy.tr.md)
 - English data model: [docs/data-model.md](docs/data-model.md)
 - Turkish data model: [docs/data-model.tr.md](docs/data-model.tr.md)
 - Draft schema: [db/schema.sql](db/schema.sql)
 - Example seed data: [db/seed.sql](db/seed.sql)
+
+Internal planning notes:
+- Local-only planning and private working notes are kept under `development/`
+- The `development/` directory is gitignored and is not part of the public repository
 
 ## Visual Diagrams
 

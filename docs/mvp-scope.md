@@ -2,7 +2,7 @@
 
 This document defines the first implementation target for the project. The goal of the MVP is to prove the core control model end to end with the smallest meaningful backend slice.
 
-[Turkce surum](mvp-scope.tr.md) | [Development Workflow](development-workflow.md)
+[Turkce surum](mvp-scope.tr.md)
 
 ## 1. MVP Goal
 

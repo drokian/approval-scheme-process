@@ -57,5 +57,5 @@ nunit-*.xml
 .dotnet-cli/
 .nuget/
 .vs/
-# Local session notes may contain personal data
-docs/session-notes.tr.md
+# Local development plans and notes may contain personal data
+development/
