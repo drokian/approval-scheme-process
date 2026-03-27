@@ -1,4 +1,6 @@
-﻿using ApprovalSchemeProcess.Infrastructure.Persistence;
+using ApprovalSchemeProcess.Application.Sessions;
+using ApprovalSchemeProcess.Domain.Entities;
+using ApprovalSchemeProcess.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,9 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<ApprovalSchemeProcessDbContext>(options => options
             .UseNpgsql(connectionString)
             .UseSnakeCaseNamingConvention());
+        services.AddScoped<ISessionContextEvaluator, SessionContextEvaluator>();
+        services.AddScoped<ISessionContextSessionReader, SessionContextSessionReader>();
+        services.AddScoped<ISessionContextService, SessionContextService>();
 
         return services;
     }
@@ -68,4 +73,15 @@ public static class ServiceCollectionExtensions
         await dbContext.Database.ExecuteSqlRawAsync(seedSql, cancellationToken);
         logger.LogInformation("Applied demo seed SQL from {SeedPath}.", seedPath);
     }
+}
+
+public sealed class SessionContextSessionReader(ApprovalSchemeProcessDbContext dbContext) : ISessionContextSessionReader
+{
+    public Task<Session?> GetByIdAsync(long sessionId, CancellationToken cancellationToken = default) =>
+        dbContext.Sessions
+            .AsNoTracking()
+            .Include(session => session.Appointment)
+            .ThenInclude(appointment => appointment!.Targets)
+            .Include(session => session.Assignments)
+            .FirstOrDefaultAsync(session => session.Id == sessionId, cancellationToken);
 }
