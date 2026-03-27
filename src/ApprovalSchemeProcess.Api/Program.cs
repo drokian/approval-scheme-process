@@ -1,5 +1,6 @@
 using ApprovalSchemeProcess.Application.Access;
 using ApprovalSchemeProcess.Application.Approval;
+using ApprovalSchemeProcess.Application.Logging;
 using ApprovalSchemeProcess.Application.Sessions;
 using ApprovalSchemeProcess.Infrastructure.DependencyInjection;
 
@@ -20,7 +21,7 @@ if (app.Configuration.GetValue<bool>("Database:ApplyMigrationsOnStartup"))
 app.MapGet("/", () => Results.Ok(new
 {
     service = "ApprovalSchemeProcess.Api",
-    version = "s4-approval-engine",
+    version = "s6-demo-api-flow",
     status = "running"
 }));
 
@@ -50,6 +51,24 @@ app.MapPost("/api/access/evaluate", async (
 {
     var evaluation = await accessEvaluationService.EvaluateAsync(request, cancellationToken);
     return Results.Ok(evaluation);
+});
+
+app.MapPost("/api/access/requests", async (
+    AccessRequestSubmissionRequest request,
+    IAccessRequestFlowService accessRequestFlowService,
+    CancellationToken cancellationToken) =>
+{
+    var result = await accessRequestFlowService.SubmitAsync(request, cancellationToken);
+    return Results.Ok(result);
+});
+
+app.MapPost("/api/access/requests/approval-decision", async (
+    ApprovalDecisionSubmissionRequest request,
+    IAccessRequestFlowService accessRequestFlowService,
+    CancellationToken cancellationToken) =>
+{
+    var result = await accessRequestFlowService.RecordApprovalDecisionAsync(request, cancellationToken);
+    return Results.Ok(result);
 });
 
 app.MapPost("/api/approval/workflows/start", async (
