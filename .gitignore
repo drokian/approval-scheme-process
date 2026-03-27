@@ -55,6 +55,7 @@ TestResult.xml
 nunit-*.xml
 # Local CLI state
 .dotnet-cli/
+.nuget/
 .vs/
 # Local session notes may contain personal data
 docs/session-notes.tr.md

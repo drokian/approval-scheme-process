@@ -1,4 +1,5 @@
-﻿using ApprovalSchemeProcess.Infrastructure.DependencyInjection;
+using ApprovalSchemeProcess.Application.Sessions;
+using ApprovalSchemeProcess.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,7 @@ if (app.Configuration.GetValue<bool>("Database:ApplyMigrationsOnStartup"))
 app.MapGet("/", () => Results.Ok(new
 {
     service = "ApprovalSchemeProcess.Api",
-    version = "s1-foundation",
+    version = "s2-session-engine",
     status = "running"
 }));
 
@@ -26,6 +27,26 @@ app.MapGet("/health", () => Results.Ok(new
     status = "healthy"
 }));
 
+app.MapPost("/api/session-context/evaluate", async (
+    SessionContextRequest request,
+    ISessionContextService sessionContextService,
+    CancellationToken cancellationToken) =>
+{
+    var evaluation = await sessionContextService.IsInContextAsync(request, cancellationToken);
+
+    return Results.Ok(new SessionContextEvaluationResponse(
+        evaluation.IsInContext,
+        evaluation.FailureReason.ToString(),
+        evaluation.SessionId,
+        evaluation.AppointmentId));
+});
+
 app.Run();
 
 public partial class Program;
+
+public sealed record SessionContextEvaluationResponse(
+    bool IsInContext,
+    string FailureReason,
+    long? SessionId,
+    long? AppointmentId);
