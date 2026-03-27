@@ -1,4 +1,5 @@
 using ApprovalSchemeProcess.Application.Access;
+using ApprovalSchemeProcess.Application.Approval;
 using ApprovalSchemeProcess.Application.Sessions;
 using ApprovalSchemeProcess.Domain.Entities;
 using ApprovalSchemeProcess.Infrastructure.Persistence;
@@ -21,6 +22,8 @@ public static class ServiceCollectionExtensions
             .UseSnakeCaseNamingConvention());
         services.AddScoped<IAccessEvaluationReader, AccessEvaluationReader>();
         services.AddScoped<IAccessEvaluationService, AccessEvaluationService>();
+        services.AddScoped<IApprovalSchemeReader, ApprovalSchemeReader>();
+        services.AddScoped<IApprovalWorkflowService, ApprovalWorkflowService>();
         services.AddScoped<ISessionContextEvaluator, SessionContextEvaluator>();
         services.AddScoped<ISessionContextSessionReader, SessionContextSessionReader>();
         services.AddScoped<ISessionContextService, SessionContextService>();
