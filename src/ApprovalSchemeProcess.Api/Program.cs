@@ -1,4 +1,5 @@
 using ApprovalSchemeProcess.Application.Access;
+using ApprovalSchemeProcess.Application.Approval;
 using ApprovalSchemeProcess.Application.Sessions;
 using ApprovalSchemeProcess.Infrastructure.DependencyInjection;
 
@@ -19,7 +20,7 @@ if (app.Configuration.GetValue<bool>("Database:ApplyMigrationsOnStartup"))
 app.MapGet("/", () => Results.Ok(new
 {
     service = "ApprovalSchemeProcess.Api",
-    version = "s2-session-engine",
+    version = "s4-approval-engine",
     status = "running"
 }));
 
@@ -51,6 +52,23 @@ app.MapPost("/api/access/evaluate", async (
     return Results.Ok(evaluation);
 });
 
+app.MapPost("/api/approval/workflows/start", async (
+    ApprovalWorkflowStartRequest request,
+    IApprovalWorkflowService approvalWorkflowService,
+    CancellationToken cancellationToken) =>
+{
+    var workflow = await approvalWorkflowService.StartAsync(request, cancellationToken);
+    return Results.Ok(workflow);
+});
+
+app.MapPost("/api/approval/workflows/decision", (
+    ApprovalWorkflowDecisionEnvelope request,
+    IApprovalWorkflowService approvalWorkflowService) =>
+{
+    var workflow = approvalWorkflowService.ApplyDecision(request.Workflow, request.Decision);
+    return Results.Ok(workflow);
+});
+
 app.Run();
 
 public partial class Program;
@@ -60,3 +78,7 @@ public sealed record SessionContextEvaluationResponse(
     string FailureReason,
     long? SessionId,
     long? AppointmentId);
+
+public sealed record ApprovalWorkflowDecisionEnvelope(
+    ApprovalWorkflowState Workflow,
+    ApprovalStepDecisionRequest Decision);
