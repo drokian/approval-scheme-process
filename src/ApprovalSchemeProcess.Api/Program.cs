@@ -1,3 +1,4 @@
+using ApprovalSchemeProcess.Application.Access;
 using ApprovalSchemeProcess.Application.Sessions;
 using ApprovalSchemeProcess.Infrastructure.DependencyInjection;
 
@@ -39,6 +40,15 @@ app.MapPost("/api/session-context/evaluate", async (
         evaluation.FailureReason.ToString(),
         evaluation.SessionId,
         evaluation.AppointmentId));
+});
+
+app.MapPost("/api/access/evaluate", async (
+    AccessEvaluationRequest request,
+    IAccessEvaluationService accessEvaluationService,
+    CancellationToken cancellationToken) =>
+{
+    var evaluation = await accessEvaluationService.EvaluateAsync(request, cancellationToken);
+    return Results.Ok(evaluation);
 });
 
 app.Run();
