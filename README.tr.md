@@ -81,18 +81,16 @@ Kullanıcı -> Randevu Sistemi -> Oturum Motoru -> Erişim Motoru -> Onay Motoru
 - Türkçe vatandaş log erişimi: [docs/citizen-log-access.tr.md](docs/citizen-log-access.tr.md)
 - İngilizce oturum ve token süre sonu: [docs/session-and-token-expiry.md](docs/session-and-token-expiry.md)
 - Türkçe oturum ve token süre sonu: [docs/session-and-token-expiry.tr.md](docs/session-and-token-expiry.tr.md)
-- İngilizce geliştirme iş akışı: [docs/development-workflow.md](docs/development-workflow.md)
-- Türkçe geliştirme iş akışı: [docs/development-workflow.tr.md](docs/development-workflow.tr.md)
 - İngilizce MVP kapsamı: [docs/mvp-scope.md](docs/mvp-scope.md)
 - Türkçe MVP kapsamı: [docs/mvp-scope.tr.md](docs/mvp-scope.tr.md)
-- İngilizce backend sprint planı: [docs/backend-sprints.md](docs/backend-sprints.md)
-- Türkçe backend sprint planı: [docs/backend-sprints.tr.md](docs/backend-sprints.tr.md)
-- İngilizce frontend stratejisi: [docs/frontend-strategy.md](docs/frontend-strategy.md)
-- Türkçe frontend stratejisi: [docs/frontend-strategy.tr.md](docs/frontend-strategy.tr.md)
 - İngilizce veri modeli: [docs/data-model.md](docs/data-model.md)
 - Türkçe veri modeli: [docs/data-model.tr.md](docs/data-model.tr.md)
 - Şema taslağı: [db/schema.sql](db/schema.sql)
 - Örnek seed verisi: [db/seed.sql](db/seed.sql)
+
+Ic not:
+- Yerel planlama notlari ve ozel calisma notlari `development/` altinda tutulur
+- `development/` klasoru `.gitignore` kapsamindadir ve public reponun parcasi degildir
 
 ## Görsel Diyagramlar
 

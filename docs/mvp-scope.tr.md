@@ -2,7 +2,7 @@
 
 Bu doküman, projenin ilk uygulama hedefini tanımlar. MVP'nin amacı, çekirdek kontrol modelini anlamlı olan en küçük backend dilimiyle uçtan uca kanıtlamaktır.
 
-[English version](mvp-scope.md) | [Geliştirme İş Akışı](development-workflow.tr.md)
+[English version](mvp-scope.md)
 
 ## 1. MVP Amacı
 
