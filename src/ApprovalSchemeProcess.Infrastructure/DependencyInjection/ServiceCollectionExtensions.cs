@@ -1,3 +1,4 @@
+using ApprovalSchemeProcess.Application.Access;
 using ApprovalSchemeProcess.Application.Sessions;
 using ApprovalSchemeProcess.Domain.Entities;
 using ApprovalSchemeProcess.Infrastructure.Persistence;
@@ -18,6 +19,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<ApprovalSchemeProcessDbContext>(options => options
             .UseNpgsql(connectionString)
             .UseSnakeCaseNamingConvention());
+        services.AddScoped<IAccessEvaluationReader, AccessEvaluationReader>();
+        services.AddScoped<IAccessEvaluationService, AccessEvaluationService>();
         services.AddScoped<ISessionContextEvaluator, SessionContextEvaluator>();
         services.AddScoped<ISessionContextSessionReader, SessionContextSessionReader>();
         services.AddScoped<ISessionContextService, SessionContextService>();
